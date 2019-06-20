@@ -11,13 +11,13 @@
 // import required  classes
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{sum, col}
+import org.apache.spark.sql.functions.{sum, desc}
 
 // file_names
 val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
 val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv"
 
-val fileInUse = bookingsFileTesting
+val fileInUse = bookingsFile
 // create a SparkContext object
 val sc = new SparkContext("local","amadeus-challenge")
 
@@ -67,11 +67,15 @@ println(s"nulls in arr_port: $arrNans")
 //No nulls detected in arr_port and pax (correct?)
 
 // Agregate by "arr_port"
-val topAirports = dfArrivals2013.groupBy("arr_port").agg(sum("pax"))
+val topAirports = dfArrivals2013.groupBy("arr_port")
+  .agg(sum("pax").alias("pax_sum"))
+  .sort(desc("pax_sum"))
 
-topAirports.sort("pax").show()
+topAirports.show()
+
 
 spark.close()
+
 /*
 * CONSIDERATIONS
 * Since my experience with Scala spark is more limited than my experience with Pandas, workflow is extremly important.

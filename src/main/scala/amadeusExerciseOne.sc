@@ -38,6 +38,7 @@ val UniqueLinesBookingsFormatted = formatter.format(uniqueLinesBookings)
 //Saving to file only unique lines
 
 
+
 //Printing results
 println("SPARK RESULTS")
 println("")
