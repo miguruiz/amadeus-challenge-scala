@@ -63,5 +63,7 @@ println("**SPARK STOPPED. END COUNTING LINES**")
 *   - Lines could be counted using:"scala.io.Source.fromFile("FileName").getLines.size"
 *   - Duplicates could be removed using the following indications:
 *      https://blog.cyberwhale.tech/2017/01/09/remove-duplicate-lines-from-file-in-scala/
+*
+* - Would caching make sense?
 */
 
