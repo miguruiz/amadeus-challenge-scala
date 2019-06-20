@@ -18,7 +18,7 @@ import org.apache.spark.sql.functions.{sum, desc, trim, col }
 
 // file_names
 val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
-val bookingsFileUnique: String = "../dsc/Data/challenge_scala/bookings_unique.csv/part-00000"
+val bookingsFileUnique: String = "../dsc/Data/challenge_scala/bookings_unique.csv/part-00000-1064b8ed-2021-4023-81fb-3f22d2d0608b-c000.csv"
 val bookingsFileTesting: String = "../dsc/Data/challenge_scala/bookings_testing.csv"
 
 val fileInUse = bookingsFileUnique

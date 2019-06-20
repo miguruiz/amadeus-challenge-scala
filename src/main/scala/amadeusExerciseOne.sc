@@ -13,8 +13,8 @@ val searchesFileTesting: String = "../dsc/Data/challenge_scala/searches_testing.
 val bookingsFileTesting: String = "../dsc/Data/challenge_scala/bookings_testing.csv"
 
 // Files to use
-val bookiesUsedFile = searchesFile
-val searchesUsedFile = bookingsFile
+val bookiesUsedFile = searchesFileTesting
+val searchesUsedFile = bookingsFileTesting
 
 // create a SparkContext object
 val sc = new SparkContext("local","amadeus-challenge")
@@ -38,18 +38,13 @@ val linesBookingsFormatted = formatter.format(linesBookings)
 val UniqueLinesSearchesFormatted = formatter.format(uniqueLinesSearches)
 val UniqueLinesBookingsFormatted = formatter.format(uniqueLinesBookings)
 
-//Saving to file only unique lines
-//searchesRdd.distinct().coalesce(1).saveAsTextFile("../dsc/Data/challenge_scala/searches_unique.csv")
-//bookingsRdd.distinct().coalesce(1).saveAsTextFile("../dsc/Data/challenge_scala/bookings_unique.csv")
-
-
 //Printing results
 println("SPARK RESULTS")
 println("")
 println("   Searches.csv")
 println("   ------------")
 println(s"   Total lines : $linesSearchesFormatted")
-println(s"   Unique lines:    $UniqueLinesSearchesFormatted")
+println(s"   Unique lines:  $UniqueLinesSearchesFormatted")
 println("")
 println("   Bookings.csv")
 println("   ------------")
@@ -71,4 +66,3 @@ println("**SPARK STOPPED. END COUNTING LINES**")
 *
 * - Would caching help?
 */
-
