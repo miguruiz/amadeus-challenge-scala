@@ -120,9 +120,3 @@ topAirportsNames.sort(desc("pax_sum")).show(10)
 
 spark.close()
 
-/*
-* CONSIDERATIONS
-* Since my experience with Scala spark is more limited than my experience with Pandas, workflow is extremly important.
-* Working only with the necessary data, removing duplicates, checking for nulls, data types,etc.
-*/
-
