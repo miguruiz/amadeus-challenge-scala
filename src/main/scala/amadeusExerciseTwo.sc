@@ -13,25 +13,40 @@ import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
 
 // file_names
-val bookingsFile: String = ""
-val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv/part-00000"
+val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
+val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv"
 
-
+val fileInUse = bookingsFileTesting
 // create a SparkContext object
 val sc = new SparkContext("local","amadeus-challenge")
 
 // Create Spark Session
-
 val spark = SparkSession.builder.appName("Amadeus Exercise Two Application").getOrCreate()
 
+// Import file to dataframe setting header and delimiter
 
-val df = spark.read.option("header","delimiter", "^").csv(bookingsFileTesting)
-val aux = df.show()
+val df = spark.read
+  .option("delimiter", "^")
+  .option ("header","true")
+  .csv(fileInUse)
+
+// Show first 20 lines
+df.columns
+df.show()
+df.printSchema()
 
 
+//Clean column names
+val newColumnNames = df.columns.map(_.replace (" ",""))
 
-println("PRINTING AUX ******")
-print (aux)
+//Creating new dataframe with cleaned names
+val dfRenamed = df.toDF(newColumnNames: _*)
+
+// Selecting act_date and arr_port
+
+val colNames = Seq("act_date", "arr_port")
+
+dfRenamed
 
 
 spark.close()

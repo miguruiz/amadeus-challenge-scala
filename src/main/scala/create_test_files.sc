@@ -16,10 +16,12 @@ def createTestFile (nameFile: String, fractionSample: Double) : Unit= {
   */
   val sc = new SparkContext("local","test")
   val bookingsRdd = sc.textFile (nameFile)
+  val header = bookingsRdd.first()
   val newSample = bookingsRdd.sample(false, fractionSample)
+
   val newName = nameFile.replace(".csv","_testing.csv")
   newSample.coalesce(1).saveAsTextFile(newName)
 }
 
 createTestFile(bookingsFile, 0.001)
-createTestFile(searchesFile, 0.001)
+//createTestFile(searchesFile, 0.001)
