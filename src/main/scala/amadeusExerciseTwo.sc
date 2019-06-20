@@ -21,13 +21,14 @@ val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
 val bookingsFileUnique: String = "../dsc/Data/challenge_scala/bookings_unique.csv/part-00000"
 val bookingsFileTesting: String = "../dsc/Data/challenge_scala/bookings_testing.csv"
 
-val fileInUse = bookingsFileTesting
+val fileInUse = bookingsFileUnique
 
 // create a SparkContext object
 val sc = new SparkContext("local","amadeus-challenge")
 
 // Create Spark Session
 val spark = SparkSession.builder.appName("Amadeus Exercise Two Application").getOrCreate()
+import spark.implicits._
 
 // Import file to dataframe setting header and delimiter
 
@@ -49,9 +50,7 @@ val newColumnNames = df.columns.map(_.replace (" ",""))
 val dfRenamed = df.toDF(newColumnNames: _*)
 
 // Selecting act_date and arr_port
-val columnName = Seq("act_date", "arr_port", "pax")
-var dfArrivals =dfRenamed.select(columnName.head, columnName.tail: _*)
-dfArrivals.count()
+var dfArrivals =dfRenamed.select("act_date", "arr_port", "pax")
 
 // Filter year 2013
 val dfArrivals2013 = dfArrivals.filter(dfArrivals("act_date").contains("2013"))
@@ -88,19 +87,36 @@ val topAirports = dfArrivals2013Clean.groupBy("arr_port")
 topAirports.show(10)
 
 //PART II: merge with OpenTravelData to get airport names
+
+//URL from OpenTravelData - GeoBases
 val url: String ="https://raw.githubusercontent.com/opentraveldata/geobases/public/GeoBases/DataSources/Airports/GeoNames/airports_geonames_only_clean.csv"
 
+//Parse URL to RDD
+val geoContent = scala.io.Source.fromURL(url).mkString
+val geoContentList = geoContent.split("\n").filter(_ != "")
+val geoContentRdd = sc.parallelize(geoContentList)
 
+//Split into Columns
+val geoContentRddArrays = geoContentRdd.map(_.split("\\^"))
 
-val content = scala.io.Source.fromURL("http://ichart.finance.yahoo.com/table.csv?s=FB").mkString
+// Calculate total number of clumns
+val maxCols = geoContentRddArrays.first().length
 
-val list = content.split("\n").filter(_ != "")
+val newColNames = Seq("IATA_code", "Airport_name")
 
-val rdd = sc.parallelize(list)
+// Converting RDD to Datafrae and giving general names to columns
+val geoContentDf = geoContentRddArrays.toDF("arr")
+  .select((0 until maxCols).map(i => $"arr"(i).as(s"col_$i")): _*)
 
-val df2 = rdd.toDF
+// Selecting columns IATA code and Airport Name
+val resultSelection = geoContentDf.select("col_0","col_1").toDF(newColNames: _*)
 
+//Joining top 10 airports dataframe with GeoBases information
 
+val topAirportsNames = topAirports.join(resultSelection,
+  topAirports.col("arr_port") === resultSelection.col("IATA_code"))
+
+topAirportsNames.sort(desc("pax_sum")).show(10)
 
 spark.close()
 

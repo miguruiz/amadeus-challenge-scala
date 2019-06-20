@@ -11,26 +11,25 @@ val sc = new SparkContext("local","amadeus-challenge")
 val spark = SparkSession.builder.appName("Amadeus Exercise Two Application").getOrCreate()
 import spark.implicits._
 
-
+//URL from OpenTravelData - GeoBases
 val url: String ="https://raw.githubusercontent.com/opentraveldata/geobases/public/GeoBases/DataSources/Airports/GeoNames/airports_geonames_only_clean.csv"
 
-
+//Parse URL to RDD
 val content = scala.io.Source.fromURL(url).mkString
 val list = content.split("\n").filter(_ != "")
 val rdd = sc.parallelize(list)
 
-
-
-
-// note the necessary escaping because | is a special character in regular expressions
+//Split into Columns
 val arrays = rdd.map(_.split("\\^"))
 
-// otherwise - can use first record to determine number of columns:
+// Calculate total number of clumns
 val maxCols = arrays.first().length
 
-// now we create a column per (1 .. maxCols) and select these:
+// Converting RDD to Datafrae and giving general names to columns
 val result = arrays.toDF("arr")
   .select((0 until maxCols).map(i => $"arr"(i).as(s"col_$i")): _*)
 
-result.se
-result.show()
+// Selecting columns IATA code and Airport Name
+val resultSelection = result.select("col_0","col_1").show()
+
+
