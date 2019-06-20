@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cab624e-fb6f-43e3-8c5b-321a094f6eb0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/amadeusExerciseTwo.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/amadeusExerciseTwo.sc" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,24 +28,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="83" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="38" lean-forward="true" selection-end-line="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseTwo.sc">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -80,12 +85,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/tests.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/create_test_files.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/filemanager.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/remove_duplicates.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc" />
+        <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseTwo.sc" />
       </list>
     </option>
   </component>
@@ -206,12 +212,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560981201410</updated>
       <workItem from="1560981206228" duration="453000" />
-      <workItem from="1560983166132" duration="6805000" />
+      <workItem from="1560983166132" duration="8210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7258000" />
+    <option name="totallyTimeSpent" value="8663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1442" height="876" extended-state="6" />
@@ -321,20 +327,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="38" lean-forward="true" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="83" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseTwo.sc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+        <state relative-caret-position="345">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
         </state>
       </provider>
     </entry>
