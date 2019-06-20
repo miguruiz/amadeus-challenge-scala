@@ -18,14 +18,23 @@ val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv/pa
 
 
 // create a SparkContext object
+val sc = new SparkContext("local","amadeus-challenge")
+
+// Create Spark Session
+
 val spark = SparkSession.builder.appName("Amadeus Exercise Two Application").getOrCreate()
 
-// loading data from external csv into the dataframe
 
-val df_bookings = spark.read.format("csv").option("header","false").load(bookingsFileTesting)
+val df = spark.read.option("header","delimiter", "^").csv(bookingsFileTesting)
+val aux = df.show()
 
-df_bookings.show()
 
+
+println("PRINTING AUX ******")
+print (aux)
+
+
+spark.close()
 /*
 * CONSIDERATIONS
 *
