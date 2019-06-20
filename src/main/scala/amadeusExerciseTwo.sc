@@ -11,6 +11,7 @@
 // import required  classes
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.{sum, col}
 
 // file_names
 val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
@@ -43,18 +44,37 @@ val newColumnNames = df.columns.map(_.replace (" ",""))
 val dfRenamed = df.toDF(newColumnNames: _*)
 
 // Selecting act_date and arr_port
-
 val columnName = Seq("act_date", "arr_port", "pax")
 var dfArrivals =dfRenamed.select(columnName.head, columnName.tail: _*)
 dfArrivals.count()
 
+// Filter year 2013
+val dfArrivals2013 = dfArrivals.filter(dfArrivals("act_date").contains("2013"))
 
-val aux = dfArrivals.filter(dfArrivals("act_date").contains("2014"))
-aux.count()
+//Check for nulls in "pax" column
+val paxNans = dfArrivals2013.filter(dfArrivals2013("pax").isNull ||
+  dfArrivals2013("pax") === "" ||
+  dfArrivals2013("pax").isNaN).count()
+
+println(s"nulls in Pax: $paxNans")
+
+//Check for nulls in "arr_port" column
+val arrNans = dfArrivals2013.filter(dfArrivals2013("pax").isNull ||
+  dfArrivals2013("arr_port") === "" ||
+  dfArrivals2013("arr_port").isNaN).count()
+println(s"nulls in arr_port: $arrNans")
+
+//No nulls detected in arr_port and pax (correct?)
+
+// Agregate by "arr_port"
+val topAirports = dfArrivals2013.groupBy("arr_port").agg(sum("pax"))
+
+topAirports.sort("pax").show()
 
 spark.close()
 /*
 * CONSIDERATIONS
-*
+* Since my experience with Scala spark is more limited than my experience with Pandas, workflow is extremly important.
+* Working only with the necessary data, removing duplicates, checking for nulls, data types,etc.
 */
 
