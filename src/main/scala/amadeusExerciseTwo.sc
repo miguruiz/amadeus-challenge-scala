@@ -8,6 +8,8 @@
  *  - Get the name of the city or airport corresponding to that airport ( OpenTravelData)
  */
 
+//PART I: Select top 10 arrival airports
+
 // import required  classes
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
@@ -15,9 +17,11 @@ import org.apache.spark.sql.functions.{sum, desc}
 
 // file_names
 val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
+val bookingsFileUnique: String = "../dsc/Data/challenge_scala/bookings_unique.csv/part-00000"
 val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv"
 
-val fileInUse = bookingsFile
+val fileInUse = bookingsFileTesting
+
 // create a SparkContext object
 val sc = new SparkContext("local","amadeus-challenge")
 
@@ -71,7 +75,11 @@ val topAirports = dfArrivals2013.groupBy("arr_port")
   .agg(sum("pax").alias("pax_sum"))
   .sort(desc("pax_sum"))
 
-topAirports.show()
+//Display top 10
+topAirports.take(10)
+
+//PART II: merge with OpenTravelData to get airport names
+val url: String ="https://raw.githubusercontent.com/opentraveldata/geobases/public/GeoBases/DataSources/Airports/GeoNames/airports_geonames_only_clean.csv"
 
 
 spark.close()

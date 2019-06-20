@@ -6,19 +6,22 @@
 import org.apache.spark.SparkContext
 
 // file_names
-val searchesFile: String = ""
-val bookingsFile: String = ""
+val searchesFile: String = "../dsc/Data/challenge_scala/searches.csv"
+val bookingsFile: String = "../dsc/Data/challenge_scala/bookings.csv"
 
-val searchesFileTesting: String = "../dsc/Data/challenge/searches_testing.csv/part-00000"
-val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv/part-00000"
+val searchesFileTesting: String = "../dsc/Data/challenge_scala/searches_testing.csv"
+val bookingsFileTesting: String = "../dsc/Data/challenge_scala/bookings_testing.csv"
 
+// Files to use
+val bookiesUsedFile = searchesFile
+val searchesUsedFile = bookingsFile
 
 // create a SparkContext object
 val sc = new SparkContext("local","amadeus-challenge")
 
 // loading data from external dataset
-val searchesRdd = sc.textFile(searchesFileTesting)
-val bookingsRdd = sc.textFile(bookingsFileTesting)
+val searchesRdd = sc.textFile(bookiesUsedFile)
+val bookingsRdd = sc.textFile(searchesUsedFile)
 
 //Calculate total lines in searches & bookings files
 val linesSearches = searchesRdd.count()
@@ -36,7 +39,8 @@ val UniqueLinesSearchesFormatted = formatter.format(uniqueLinesSearches)
 val UniqueLinesBookingsFormatted = formatter.format(uniqueLinesBookings)
 
 //Saving to file only unique lines
-
+//searchesRdd.distinct().coalesce(1).saveAsTextFile("../dsc/Data/challenge_scala/searches_unique.csv")
+//bookingsRdd.distinct().coalesce(1).saveAsTextFile("../dsc/Data/challenge_scala/bookings_unique.csv")
 
 
 //Printing results
@@ -45,7 +49,7 @@ println("")
 println("   Searches.csv")
 println("   ------------")
 println(s"   Total lines : $linesSearchesFormatted")
-println(s"   Unique lines:  $UniqueLinesSearchesFormatted")
+println(s"   Unique lines:    $UniqueLinesSearchesFormatted")
 println("")
 println("   Bookings.csv")
 println("   ------------")
@@ -65,6 +69,6 @@ println("**SPARK STOPPED. END COUNTING LINES**")
 *   - Duplicates could be removed using the following indications:
 *      https://blog.cyberwhale.tech/2017/01/09/remove-duplicate-lines-from-file-in-scala/
 *
-* - Would caching make sense?
+* - Would caching help?
 */
 
