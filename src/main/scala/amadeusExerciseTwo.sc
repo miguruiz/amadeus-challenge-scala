@@ -13,12 +13,13 @@
 // import required  classes
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{sum, desc}
+import org.apache.spark.sql.functions.{sum, desc, trim, col }
+
 
 // file_names
 val bookingsFile: String = "../dsc/Data/challenge/bookings.csv"
 val bookingsFileUnique: String = "../dsc/Data/challenge_scala/bookings_unique.csv/part-00000"
-val bookingsFileTesting: String = "../dsc/Data/challenge/bookings_testing.csv"
+val bookingsFileTesting: String = "../dsc/Data/challenge_scala/bookings_testing.csv"
 
 val fileInUse = bookingsFileTesting
 
@@ -70,16 +71,35 @@ println(s"nulls in arr_port: $arrNans")
 
 //No nulls detected in arr_port and pax (correct?)
 
+//Strip column "arr_port"
+
+val dfArrivals2013Clean = dfArrivals2013
+  .withColumn("arr_port", trim(col("arr_port")))
+
+
+dfArrivals2013Clean.columns
+
 // Agregate by "arr_port"
-val topAirports = dfArrivals2013.groupBy("arr_port")
+val topAirports = dfArrivals2013Clean.groupBy("arr_port")
   .agg(sum("pax").alias("pax_sum"))
   .sort(desc("pax_sum"))
 
 //Display top 10
-topAirports.take(10)
+topAirports.show(10)
 
 //PART II: merge with OpenTravelData to get airport names
 val url: String ="https://raw.githubusercontent.com/opentraveldata/geobases/public/GeoBases/DataSources/Airports/GeoNames/airports_geonames_only_clean.csv"
+
+
+
+val content = scala.io.Source.fromURL("http://ichart.finance.yahoo.com/table.csv?s=FB").mkString
+
+val list = content.split("\n").filter(_ != "")
+
+val rdd = sc.parallelize(list)
+
+val df2 = rdd.toDF
+
 
 
 spark.close()
