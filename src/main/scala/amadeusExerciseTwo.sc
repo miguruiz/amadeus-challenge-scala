@@ -44,10 +44,13 @@ val dfRenamed = df.toDF(newColumnNames: _*)
 
 // Selecting act_date and arr_port
 
-val colNames = Seq("act_date", "arr_port")
+val columnName = Seq("act_date", "arr_port", "pax")
+var dfArrivals =dfRenamed.select(columnName.head, columnName.tail: _*)
+dfArrivals.count()
 
-dfRenamed
 
+val aux = dfArrivals.filter(dfArrivals("act_date").contains("2014"))
+aux.count()
 
 spark.close()
 /*
