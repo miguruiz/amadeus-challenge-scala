@@ -63,7 +63,7 @@ val paxNans = dfArrivals2013.filter(dfArrivals2013("pax").isNull ||
 println(s"nulls in Pax: $paxNans")
 
 //Check for nulls in "arr_port" column
-val arrNans = dfArrivals2013.filter(dfArrivals2013("pax").isNull ||
+val arrNans = dfArrivals2013.filter(dfArrivals2013("arr_port").isNull ||
   dfArrivals2013("arr_port") === "" ||
   dfArrivals2013("arr_port").isNaN).count()
 println(s"nulls in arr_port: $arrNans")

@@ -57,8 +57,6 @@ println("**SPARK STOPPED. END COUNTING LINES**")
 
 /*
 * CONSIDERATIONS
-* - The reason why I check for duplicates now, is because in the Python challenge
-*   there were duplicates, hence is worth cleaning the files now.
 * - If Spark was not allowed:
 *   - Lines could be counted using:"scala.io.Source.fromFile("FileName").getLines.size"
 *   - Duplicates could be removed using the following indications:
