@@ -15,7 +15,7 @@
 // import required  classes
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{sum, desc, trim, col, lit,monotonically_increasing_id }
+import org.apache.spark.sql.functions.{lit,monotonically_increasing_id, col, substring }
 
 
 // file_names
@@ -35,39 +35,36 @@ val fileInUseSearches = searchesFileUnique
 val sc = new SparkContext("local","amadeus-challenge")
 
 // Create Spark Session
+
 val spark = SparkSession.builder.appName("Amadeus Exercise Two Application").getOrCreate()
 import spark.implicits._
 
 //Import files to dataframe setting header and delimiter
 
-val dfBookings = spark.read
+val dfBookingsTemp = spark.read
   .option("delimiter", "^")
   .option ("header","true")
   .csv(fileInUseBookings)
 
-val dfSearches = spark.read
+val dfSearchesTemp = spark.read
   .option("delimiter", "^")
   .option ("header","true")
   .csv(fileInUseSearches)
 
 
 //Clean column names in both dataframes
-val newColumnNamesSearches = dfSearches.columns.map(_.replace (" ",""))
-val newColumnNamesBookings = dfBookings.columns.map(_.replace (" ",""))
+val newColumnNamesSearches = dfSearchesTemp.columns.map(_.replace (" ",""))
+val newColumnNamesBookings = dfBookingsTemp.columns.map(_.replace (" ",""))
 
 //Creating new dataframe with cleaned column names
-val dfSearchesCleaned  = dfSearches.toDF(newColumnNamesSearches: _*)
-val dfBookingsCleaned  = dfBookings.toDF(newColumnNamesBookings: _*)
+val dfSearches  = dfSearchesTemp.toDF(newColumnNamesSearches: _*)
+val dfBookings  = dfBookingsTemp.toDF(newColumnNamesBookings: _*)
 
 //Adding index column to searches
-dfSearchesCleaned.withColumn("index",monotonically_increasing_id())
-
-//Adding value 1 to bookings
-dfBookingsCleaned.withColumn("booking",lit(1))
+val dfSearchesSelIdx = dfSearches.withColumn("index",monotonically_increasing_id())
+val dfBookingsBin = dfBookings.withColumn("booking",lit(1))
 
 
-dfSearchesCleaned.show()
-dfBookingsCleaned.show()
 //CLEANING COLUMNS TO BE MERGED
 
 // Looking for empty values
@@ -83,8 +80,8 @@ println("------------")
 // looping searches in search for
 for (column <- colsToCleanSearches){
 
-  val nansFound = dfSearchesCleaned.filter(dfSearchesCleaned(column).isNull ||
-    dfSearchesCleaned(column) === "" || dfSearchesCleaned(column).isNaN).count()
+  val nansFound = dfSearchesSelIdx.filter(dfSearchesSelIdx(column).isNull ||
+    dfSearchesSelIdx(column) === "" || dfSearchesSelIdx(column).isNaN).count()
 
   println(s"Total nulls in $column : $nansFound")
 }
@@ -94,15 +91,26 @@ println("------------")
 
 for (column <- colsToCleanBookings){
 
-  val nansFound = dfBookingsCleaned.filter(dfBookingsCleaned(column).isNull ||
-    dfBookingsCleaned(column) === "" || dfBookingsCleaned(column).isNaN).count()
+  val nansFound = dfBookingsBin.filter(dfBookingsBin(column).isNull ||
+    dfBookingsBin(column) === "" || dfBookingsBin(column).isNaN).count()
 
   println(s"Total nulls in $column : $nansFound")
 }
 
 //Selecting only the necessary columns
-val dfSearchesCleanedSel = dfSearchesCleaned.select("Origin","Destination", "Date", "index")
-val dfBookingsCleanedSel = dfBookingsCleaned.select("arr_port","dep_port", "cre_date", "booking")
+val dfSearchesSelIdxSel = dfSearchesSelIdx.select("Origin","Destination", "Date", "index")
+val dfBookingsBinSel = dfBookingsBin.select("arr_port","dep_port", "cre_date", "booking")
+
+// Remove nulls
+val aux = dfBookingsBinSel.withColumn("cre_date", substring(col("cre_date"),1,10) )
+
+aux.show()
+
+// Clean date
+// Remove whitespaces
+
+
+
 
 
 
