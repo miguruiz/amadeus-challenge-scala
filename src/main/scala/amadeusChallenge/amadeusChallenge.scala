@@ -1,0 +1,5 @@
+package amadeusChallenge
+
+object amadeusChallenge {
+
+}
