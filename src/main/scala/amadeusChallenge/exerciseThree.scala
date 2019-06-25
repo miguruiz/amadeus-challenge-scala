@@ -11,8 +11,8 @@ object exerciseThree {
    */
   def mergeSearchesBookings(filePath_Bookings: String, filePath_Searches:String, spark: SparkSession): Unit = {
 
-    val dfBookingsTemp = readFile(filePath_Bookings, spark)
-    val dfSearchesTemp = readFile(filePath_Searches, spark)
+    val dfBookingsTemp = exerciseOne.readFile(filePath_Bookings, spark)
+    val dfSearchesTemp = exerciseOne.readFile(filePath_Searches, spark)
 
     //Clean column names in both dataframes
 
@@ -60,13 +60,12 @@ object exerciseThree {
     //Fill nulls in column "booking" with value 0, and remove column index
     val searchesFinal = SearchesOriginalWithBookings.na.fill(0,Seq("booking"))
     searchesFinal.show()
-  }
 
-  def readFile(filePath: String, spark: SparkSession): DataFrame = {
-    spark.read
-      .option("delimiter", "^")
-      .option("header", "true")
-      .csv(filePath)
+    //New file path
+    val fileNewPath = filePath_Searches.dropRight(4) + "_with_bookings.csv"
+
+    exerciseOne.saveFile(searchesFinal,fileNewPath,spark)
+
   }
 
   def cleanColumnNames (df:DataFrame): DataFrame = {
@@ -75,20 +74,6 @@ object exerciseThree {
 
     //Creating new dataframe with cleaned column names
     df.toDF(newColumnNamesBookings: _*)
-  }
-
-  def saveToFile (df:DataFrame, filePath:String): Unit = {
-    //Creating the name of the new path by removing extension and
-    val fileNewPath = filePath.dropRight(4) + "_with_bookings.csv"
-
-    //Save Results to file
-    df
-      .coalesce(1)
-      .write.format("csv")
-      .option("header", "true")
-      .option("delimiter", "^")
-      .save(fileNewPath)
-
   }
 
 

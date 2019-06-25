@@ -22,23 +22,17 @@ object exerciseTwo {
 
   private val AppName = "AmadeusExerciseTwo"
   val url: String ="https://raw.githubusercontent.com/opentraveldata/geobases/public/GeoBases/DataSources/Airports/GeoNames/airports_geonames_only_clean.csv"
-  /*
-  * name - countLines
-  * desc - prints the number of lines and unique lines inside a given file
-  *
-  * Recibe: fecha,
-  */
 
-  def topAirports (filePath: String, spark: SparkSession, sc: SparkContext, delimiter: String = "^", header: String = "true"): Unit ={
+
+  /*
+   * Aggregates 
+   */
+  def topAirports (filePath: String, spark: SparkSession, sc: SparkContext): Unit ={
 
     // Create Spark Session
     //val spark = SparkSession.builder.appName(AppName).getOrCreate()
 
-
-    val dfFile = spark.read
-      .option("delimiter", delimiter)
-      .option ("header",header)
-      .csv(filePath)
+    val dfFile = exerciseOne.readFile(filePath, spark)
 
     //Clean column names
     val newColumnNames = dfFile.columns.map(_.replace (" ",""))

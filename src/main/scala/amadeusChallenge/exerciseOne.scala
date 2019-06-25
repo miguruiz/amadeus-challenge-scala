@@ -14,7 +14,7 @@ package amadeusChallenge
 // import required  classes
 
 import org.apache.spark.SparkContext
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{DataFrame, SparkSession}
 import java.text.NumberFormat.getIntegerInstance
 
 
@@ -25,8 +25,7 @@ object exerciseOne {
 
 
   /*
-   * name - countLines
-   * desc - prints the number of lines and unique lines inside a given file
+   * Counts and print the unique and total lines from a given filepath
    */
   def countLines (filePath: String, sc: SparkContext): Unit ={
 
@@ -53,20 +52,13 @@ object exerciseOne {
   }
 
   /*
-   * name - removeDuplicates
-   * desc - creates a file without duplicated lines from a given file
-    */
+   * Given a file, creates a new one without duplicated lines. Returns the new filepath.
+   */
 
-  def removeDuplicates (filePath: String, spark: SparkSession, delimiter: String = "^", header: String = "true"): String ={
-
-    // Create a SparkContext object
-    val spark = SparkSession.builder.appName(AppName).getOrCreate()
+  def removeDuplicates (filePath: String, spark: SparkSession): String ={
 
     // Read file into DataFrame
-    val dfFile = spark.read
-      .option("delimiter", delimiter)
-      .option ("header",header)
-      .csv(filePath)
+    val dfFile = readFile(filePath, spark)
 
     // Remove duplicate
     val dfFileUnique = dfFile.distinct()
@@ -75,18 +67,40 @@ object exerciseOne {
     val fileNewPath = filePath.dropRight(4) + "_unique.csv"
 
     //Save to file using same delimiter and header
-    dfFileUnique
+    saveFile(dfFileUnique,fileNewPath, spark)
+
+    fileNewPath
+
+  }
+
+  /*
+   * Reads a file into dataframe, and returns the dataframe
+   */
+
+  def readFile(filePath: String, spark: SparkSession, delimiter: String = "^", header:Boolean=true): DataFrame = {
+    spark.read
+      .option("delimiter", delimiter)
+      .option("header", header)
+      .csv(filePath)
+  }
+
+  /*
+   * Save a file to csv
+   */
+  def saveFile(df: DataFrame, filePath: String, spark: SparkSession, delimiter: String = "^", header:Boolean=true): Unit ={
+    df
       .coalesce(1)
       .write.format("csv")
       .option("header", header)
       .option("delimiter", delimiter)
-      .save(fileNewPath)
-
-    // StopSpark Session
-    spark.stop()
-
-    //Return the new filepath
-    fileNewPath
+      .save(filePath)
 
   }
 }
+
+
+/*
+CONSIDERATIONS:
+- Probably having sparkSession and SparkContet in the same application is uneeded.
+
+*/
