@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: de.ruedigermoeller:fst:2.50:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/de.ruedigermoeller/fst/bundles/fst-2.50.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/de.ruedigermoeller/fst/srcs/fst-2.50-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
