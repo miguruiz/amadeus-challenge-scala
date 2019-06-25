@@ -1,13 +1,13 @@
 package amadeusChallenge
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{SparkSession}
 import org.apache.spark.sql.functions.{col, lit, monotonically_increasing_id, substring, trim}
 
 object exerciseThree {
 
   /*
-   * name - countLines
-   * desc - prints the number of lines and unique lines inside a given file
+   * Given Bookings.csv and Searches.csv, creates a new file similar to Searches.csv with an additional column "booking"
+   * that contains value "1" if the searched finished in a booking, and "0" if not.
    */
   def mergeSearchesBookings(filePath_Bookings: String, filePath_Searches:String, spark: SparkSession): Unit = {
 
@@ -16,8 +16,8 @@ object exerciseThree {
 
     //Clean column names in both dataframes
 
-    val dfBookings = cleanColumnNames(dfBookingsTemp)
-    val dfSearches = cleanColumnNames(dfSearchesTemp)
+    val dfBookings = exerciseTwo.cleanColumnNames(dfBookingsTemp)
+    val dfSearches = exerciseTwo.cleanColumnNames(dfSearchesTemp)
 
     //Adding bookings column with "ones" to Bookings
     val dfBookingsBin = dfBookings.withColumn("booking", lit(1))
@@ -26,9 +26,7 @@ object exerciseThree {
     val dfSearchesSelIdx = dfSearches.withColumn("index", monotonically_increasing_id())
 
     /*
-
-    PENDING - Cleaning for Nulls
-
+      PENDING - Cleaning for Nulls.
      */
 
     //Selecting only the necessary columns
@@ -67,14 +65,5 @@ object exerciseThree {
     exerciseOne.saveFile(searchesFinal,fileNewPath,spark)
 
   }
-
-  def cleanColumnNames (df:DataFrame): DataFrame = {
-    //Clean column names in both dataframes
-    val newColumnNamesBookings = df.columns.map(_.replace(" ", ""))
-
-    //Creating new dataframe with cleaned column names
-    df.toDF(newColumnNamesBookings: _*)
-  }
-
 
 }

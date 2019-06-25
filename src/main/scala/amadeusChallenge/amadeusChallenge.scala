@@ -16,7 +16,6 @@ object amadeusChallenge {
       VERIFY THAT FIRST FILE IS BOOKINGS, SECOND IS SEARCHES
      */
 
-
     // Initialize SparkContet & Spark Session
     val sc = new SparkContext("local","amadeus")
     val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
@@ -40,7 +39,6 @@ object amadeusChallenge {
   }
 
 }
-
 
 
 /*
