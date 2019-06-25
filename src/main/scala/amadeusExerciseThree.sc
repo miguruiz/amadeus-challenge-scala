@@ -8,6 +8,9 @@
  *    - "Origin"(searches.csv) == "dep_port" (bookings.csv)
  *    - "Destination" (searches.csv) == "arr_port" (bookings.csv)
  *    - "Date" (searches.csv) == "cre_date" (bookings.csv)
+ *
+ *  - PENDING:
+ *     drop nulls
  */
 
 //PART I: Select top 10 arrival airports
@@ -15,7 +18,7 @@
 // import required  classes
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{lit,monotonically_increasing_id, col, substring }
+import org.apache.spark.sql.functions.{lit,monotonically_increasing_id, trim, col, substring }
 
 
 // file_names
@@ -53,23 +56,26 @@ val dfSearchesTemp = spark.read
 
 
 //Clean column names in both dataframes
-val newColumnNamesSearches = dfSearchesTemp.columns.map(_.replace (" ",""))
 val newColumnNamesBookings = dfBookingsTemp.columns.map(_.replace (" ",""))
+val newColumnNamesSearches = dfSearchesTemp.columns.map(_.replace (" ",""))
 
 //Creating new dataframe with cleaned column names
-val dfSearches  = dfSearchesTemp.toDF(newColumnNamesSearches: _*)
 val dfBookings  = dfBookingsTemp.toDF(newColumnNamesBookings: _*)
+val dfSearches  = dfSearchesTemp.toDF(newColumnNamesSearches: _*)
+
+//Adding bookings column with "ones" to Bookings
+val dfBookingsBin = dfBookings.withColumn("booking",lit(1))
 
 //Adding index column to searches
 val dfSearchesSelIdx = dfSearches.withColumn("index",monotonically_increasing_id())
-val dfBookingsBin = dfBookings.withColumn("booking",lit(1))
 
 
 //CLEANING COLUMNS TO BE MERGED
-
+/*
 // Looking for empty values
-val colsToCleanSearches = List ("Origin","Destination", "Date")
 val colsToCleanBookings = List ("arr_port","dep_port", "cre_date")
+val colsToCleanSearches = List ("Origin","Destination", "Date")
+
 
 // Head of nulls summary
 println("NULLS REPORT")
@@ -77,7 +83,9 @@ println("")
 println("SEARCHES")
 println("------------")
 
+
 // looping searches in search for
+
 for (column <- colsToCleanSearches){
 
   val nansFound = dfSearchesSelIdx.filter(dfSearchesSelIdx(column).isNull ||
@@ -95,23 +103,44 @@ for (column <- colsToCleanBookings){
     dfBookingsBin(column) === "" || dfBookingsBin(column).isNaN).count()
 
   println(s"Total nulls in $column : $nansFound")
-}
+} */
 
 //Selecting only the necessary columns
 val dfSearchesSelIdxSel = dfSearchesSelIdx.select("Origin","Destination", "Date", "index")
 val dfBookingsBinSel = dfBookingsBin.select("arr_port","dep_port", "cre_date", "booking")
 
-// Remove nulls
-val aux = dfBookingsBinSel.withColumn("cre_date", substring(col("cre_date"),1,10) )
+// Clean date on Bookings & stripping airport columns & remove duplicates
+val dfBookingsBinSelRdy = dfBookingsBinSel
+  .withColumn("cre_date", substring(col("cre_date"),1,10) )
+  .withColumn("dep_port", trim(col("dep_port")))
+  .withColumn("arr_port", trim(col("arr_port")))
+  .distinct()
 
-aux.show()
-
-// Clean date
-// Remove whitespaces
-
-
-
-
+val dfSearchesSelIdxSelRdy = dfSearchesSelIdxSel.withColumn("Origin", trim(col("Origin")))
+    .withColumn("Destination", trim(col("Destination")))
 
 
 // Dropping nulls found
+
+
+// Merge files Bookings with Searches on the Date, flight origin and destination
+val searchesWithBookings = dfSearchesSelIdxSelRdy.join(dfBookingsBinSelRdy,
+  dfSearchesSelIdxSelRdy.col("Date") === dfBookingsBinSelRdy.col("cre_date") &&
+    dfSearchesSelIdxSelRdy.col("Origin") === dfBookingsBinSelRdy.col("dep_port") &&
+    dfSearchesSelIdxSelRdy.col("Destination") === dfBookingsBinSelRdy.col("arr_port"), "left")
+
+// Merge column "bookings" to the original Searches file
+val searchesWithBookings_2 = searchesWithBookings.select("index","booking")
+
+
+
+val SearchesOriginalWithBookings = dfSearchesSelIdx.join(searchesWithBookings_2,
+  dfSearchesSelIdx.col("index")===searchesWithBookings_2.col("index"), "left" )
+
+//Fill nulls in column "booking" with value 0, and remove column index
+
+val searchesFinal = SearchesOriginalWithBookings.na.fill(0,Seq("booking"))
+  .drop("index")
+
+searchesFinal.show()
+

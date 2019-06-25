@@ -72,8 +72,7 @@ println(s"nulls in arr_port: $arrNans")
 
 //Strip column "arr_port"
 
-val dfArrivals2013Clean = dfArrivals2013
-  .withColumn("arr_port", trim(col("arr_port")))
+val dfArrivals2013Clean = dfArrivals2013.withColumn("arr_port", trim(col("arr_port")))
 
 
 dfArrivals2013Clean.columns

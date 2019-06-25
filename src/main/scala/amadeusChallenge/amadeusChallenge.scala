@@ -2,4 +2,7 @@ package amadeusChallenge
 
 object amadeusChallenge {
 
+
+
 }
+
