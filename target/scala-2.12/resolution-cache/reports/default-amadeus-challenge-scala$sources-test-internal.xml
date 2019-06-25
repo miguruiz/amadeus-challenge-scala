@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20190625094828"/>
+		date="20190625114940"/>
 	<dependencies>
 		<module organisation="org.apache.spark" name="spark-sql_2.12">
 			<revision name="2.4.2" status="release" pubdate="20190419035419" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="155">
@@ -826,7 +826,7 @@
 			</revision>
 		</module>
 		<module organisation="org.codehaus.janino" name="commons-compiler">
-			<revision name="3.0.9" status="release" pubdate="20180823091742" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="17">
+			<revision name="3.0.9" status="release" pubdate="20180823091742" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
 				<license name="New BSD License" url="https://raw.githubusercontent.com/janino-compiler/janino/master/LICENSE"/>
 				<metadata-artifact status="no" details="" size="3744" time="0" location="/home/dsc/.ivy2/cache/org.codehaus.janino/commons-compiler/ivy-3.0.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/codehaus/janino/commons-compiler/3.0.9/commons-compiler-3.0.9.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="3.0.9" rev-constraint-default="3.0.9" rev-constraint-dynamic="3.0.9" callerrev="0.1"/>
@@ -838,7 +838,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.orc" name="orc-mapreduce">
-			<revision name="1.5.5" status="release" pubdate="20190314212821" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="15">
+			<revision name="1.5.5" status="release" pubdate="20190314212821" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
 				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="21297" time="0" location="/home/dsc/.ivy2/cache/org.apache.orc/orc-mapreduce/ivy-1.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/orc/orc-mapreduce/1.5.5/orc-mapreduce-1.5.5.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="1.5.5" rev-constraint-default="1.5.5" rev-constraint-dynamic="1.5.5" callerrev="0.1"/>
@@ -874,7 +874,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.orc" name="orc-shims">
-			<revision name="1.5.5" status="release" pubdate="20190314212618" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
+			<revision name="1.5.5" status="release" pubdate="20190314212618" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="15">
 				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="20667" time="0" location="/home/dsc/.ivy2/cache/org.apache.orc/orc-shims/ivy-1.5.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/orc/orc-shims/1.5.5/orc-shims-1.5.5.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="1.5.5" rev-constraint-default="1.5.5" rev-constraint-dynamic="1.5.5" callerrev="0.1"/>
@@ -886,7 +886,7 @@
 			</revision>
 		</module>
 		<module organisation="org.glassfish.jersey.containers" name="jersey-container-servlet">
-			<revision name="2.22.2" status="release" pubdate="20160216133036" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
+			<revision name="2.22.2" status="release" pubdate="20160216133036" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="13">
 				<license name="CDDL+GPL License" url="http://glassfish.java.net/public/CDDL+GPL_1_1.html"/>
 				<metadata-artifact status="no" details="" size="35227" time="0" location="/home/dsc/.ivy2/cache/org.glassfish.jersey.containers/jersey-container-servlet/ivy-2.22.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/glassfish/jersey/containers/jersey-container-servlet/2.22.2/jersey-container-servlet-2.22.2.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.22.2" rev-constraint-default="2.22.2" rev-constraint-dynamic="2.22.2" callerrev="0.1"/>
@@ -946,7 +946,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.avro" name="avro">
-			<revision name="1.8.2" status="release" pubdate="20170507205247" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://avro.apache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="13">
+			<revision name="1.8.2" status="release" pubdate="20170507205247" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://avro.apache.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="12">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="12076" time="0" location="/home/dsc/.ivy2/cache/org.apache.avro/avro/ivy-1.8.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/avro/avro/1.8.2/avro-1.8.2.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="1.8.2" rev-constraint-default="1.8.2" rev-constraint-dynamic="1.8.2" callerrev="0.1"/>
@@ -982,7 +982,7 @@
 			</revision>
 		</module>
 		<module organisation="org.json4s" name="json4s-ast_2.12">
-			<revision name="3.5.3" status="release" pubdate="20170729021043" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/json4s/json4s" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
+			<revision name="3.5.3" status="release" pubdate="20170729021043" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/json4s/json4s" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="2648" time="0" location="/home/dsc/.ivy2/cache/org.json4s/json4s-ast_2.12/ivy-3.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/json4s/json4s-ast_2.12/3.5.3/json4s-ast_2.12-3.5.3.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="3.5.3" rev-constraint-default="3.5.3" rev-constraint-dynamic="3.5.3" callerrev="0.1"/>
@@ -994,7 +994,7 @@
 			</revision>
 		</module>
 		<module organisation="org.glassfish.jersey.media" name="jersey-media-jaxb">
-			<revision name="2.22.2" status="release" pubdate="20160216132855" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+			<revision name="2.22.2" status="release" pubdate="20160216132855" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
 				<license name="CDDL+GPL License" url="http://glassfish.java.net/public/CDDL+GPL_1_1.html"/>
 				<metadata-artifact status="no" details="" size="35538" time="0" location="/home/dsc/.ivy2/cache/org.glassfish.jersey.media/jersey-media-jaxb/ivy-2.22.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/glassfish/jersey/media/jersey-media-jaxb/2.22.2/jersey-media-jaxb-2.22.2.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.22.2" rev-constraint-default="2.22.2" rev-constraint-dynamic="2.22.2" callerrev="0.1"/>
@@ -1141,7 +1141,7 @@
 			</revision>
 		</module>
 		<module organisation="net.razorvine" name="pyrolite">
-			<revision name="4.13" status="release" pubdate="20160909004659" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/irmen/Pyrolite" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+			<revision name="4.13" status="release" pubdate="20160909004659" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/irmen/Pyrolite" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
 				<license name="MIT License" url="https://raw.githubusercontent.com/irmen/Pyrolite/master/LICENSE"/>
 				<metadata-artifact status="no" details="" size="4025" time="0" location="/home/dsc/.ivy2/cache/net.razorvine/pyrolite/ivy-4.13.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/razorvine/pyrolite/4.13/pyrolite-4.13.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="4.13" rev-constraint-default="4.13" rev-constraint-dynamic="4.13" callerrev="0.1"/>
@@ -1153,7 +1153,7 @@
 			</revision>
 		</module>
 		<module organisation="com.fasterxml.jackson.module" name="jackson-module-scala_2.12">
-			<revision name="2.6.7.1" status="release" pubdate="20170308183948" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://wiki.fasterxml.com/JacksonModuleScala" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+			<revision name="2.6.7.1" status="release" pubdate="20170308183948" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://wiki.fasterxml.com/JacksonModuleScala" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="4357" time="0" location="/home/dsc/.ivy2/cache/com.fasterxml.jackson.module/jackson-module-scala_2.12/ivy-2.6.7.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-scala_2.12/2.6.7.1/jackson-module-scala_2.12-2.6.7.1.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.6.7.1" rev-constraint-default="2.6.7.1" rev-constraint-dynamic="2.6.7.1" callerrev="0.1"/>
@@ -1177,7 +1177,7 @@
 			</revision>
 		</module>
 		<module organisation="com.thoughtworks.paranamer" name="paranamer">
-			<revision name="2.8" status="release" pubdate="20150826132928" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+			<revision name="2.8" status="release" pubdate="20150826132928" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
 				<license name="BSD" url="LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="4254" time="0" location="/home/dsc/.ivy2/cache/com.thoughtworks.paranamer/paranamer/ivy-2.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.8" rev-constraint-default="2.8" rev-constraint-dynamic="2.8" callerrev="0.1"/>
@@ -1201,7 +1201,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-core">
-			<revision name="2.6.5" status="release" pubdate="20161003012350" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+			<revision name="2.6.5" status="release" pubdate="20161003012350" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="34545" time="0" location="/home/dsc/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-core/ivy-2.6.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.5/hadoop-mapreduce-client-core-2.6.5.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.6.5" rev-constraint-default="2.6.5" rev-constraint-dynamic="2.6.5" callerrev="0.1"/>
@@ -1385,7 +1385,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-auth">
-			<revision name="2.6.5" status="release" pubdate="20161003010725" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="18">
+			<revision name="2.6.5" status="release" pubdate="20161003010725" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="17">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="32556" time="0" location="/home/dsc/.ivy2/cache/org.apache.hadoop/hadoop-auth/ivy-2.6.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-auth/2.6.5/hadoop-auth-2.6.5.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.6.5" rev-constraint-default="2.6.5" rev-constraint-dynamic="2.6.5" callerrev="0.1"/>
@@ -1480,7 +1480,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.directory.server" name="apacheds-i18n">
-			<revision name="2.0.0-M15" status="release" pubdate="20130814165100" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
+			<revision name="2.0.0-M15" status="release" pubdate="20130814165100" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="25493" time="0" location="/home/dsc/.ivy2/cache/org.apache.directory.server/apacheds-i18n/ivy-2.0.0-M15.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/directory/server/apacheds-i18n/2.0.0-M15/apacheds-i18n-2.0.0-M15.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.0.0-M15" rev-constraint-default="2.0.0-M15" rev-constraint-dynamic="2.0.0-M15" callerrev="0.1"/>
@@ -1552,7 +1552,7 @@
 			</revision>
 		</module>
 		<module organisation="org.codehaus.jackson" name="jackson-core-asl">
-			<revision name="1.9.13" status="release" pubdate="20130715050730" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jackson.codehaus.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="10">
+			<revision name="1.9.13" status="release" pubdate="20130715050730" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jackson.codehaus.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="2564" time="0" location="/home/dsc/.ivy2/cache/org.codehaus.jackson/jackson-core-asl/ivy-1.9.13.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="1.9.13" rev-constraint-default="1.9.13" rev-constraint-dynamic="1.9.13" callerrev="0.1"/>
@@ -1611,7 +1611,7 @@
 			</revision>
 		</module>
 		<module organisation="oro" name="oro">
-			<revision name="2.0.8" status="release" pubdate="20051108232901" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="12">
+			<revision name="2.0.8" status="release" pubdate="20051108232901" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
 				<metadata-artifact status="no" details="" size="2296" time="0" location="/home/dsc/.ivy2/cache/oro/oro/ivy-2.0.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/oro/oro/2.0.8/oro-2.0.8.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.0.8" rev-constraint-default="2.0.8" rev-constraint-dynamic="2.0.8" callerrev="0.1"/>
 				<artifacts>
@@ -1707,7 +1707,7 @@
 			</revision>
 		</module>
 		<module organisation="io.dropwizard.metrics" name="metrics-graphite">
-			<revision name="3.1.5" status="release" pubdate="20170602200149" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="3">
+			<revision name="3.1.5" status="release" pubdate="20170602200149" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
 				<license name="Apache License 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="5373" time="0" location="/home/dsc/.ivy2/cache/io.dropwizard.metrics/metrics-graphite/ivy-3.1.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/dropwizard/metrics/metrics-graphite/3.1.5/metrics-graphite-3.1.5.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="3.1.5" rev-constraint-default="3.1.5" rev-constraint-dynamic="3.1.5" callerrev="0.1"/>
@@ -1731,7 +1731,7 @@
 			</revision>
 		</module>
 		<module organisation="commons-collections" name="commons-collections">
-			<revision name="3.2.2" status="release" pubdate="20151113001126" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/collections/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+			<revision name="3.2.2" status="release" pubdate="20151113001126" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/collections/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="1">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="11113" time="0" location="/home/dsc/.ivy2/cache/commons-collections/commons-collections/ivy-3.2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="3.2.2" rev-constraint-default="3.2.2" rev-constraint-dynamic="3.2.2" callerrev="0.1"/>
@@ -1743,7 +1743,7 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.spark" name="spark-unsafe_2.12">
-			<revision name="2.4.2" status="release" pubdate="20190419035609" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="1">
+			<revision name="2.4.2" status="release" pubdate="20190419035609" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="0">
 				<license name="Apache 2.0 License" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="79943" time="0" location="/home/dsc/.ivy2/cache/org.apache.spark/spark-unsafe_2.12/ivy-2.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/spark/spark-unsafe_2.12/2.4.2/spark-unsafe_2.12-2.4.2.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.4.2" rev-constraint-default="2.4.2" rev-constraint-dynamic="2.4.2" callerrev="0.1"/>
@@ -1875,7 +1875,7 @@
 			</revision>
 		</module>
 		<module organisation="org.scala-lang" name="scala-library">
-			<revision name="2.12.8" status="release" pubdate="20181204111556" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.8/" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="0">
+			<revision name="2.12.8" status="release" pubdate="20181204111556" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.8/" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="18">
 				<license name="Apache-2.0" url="https://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="2656" time="0" location="/home/dsc/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.8.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.8/scala-library-2.12.8.pom"/>
 				<caller organisation="default" name="amadeus-challenge-scala$sources" conf="test, compile, provided, test-internal, runtime, optional" rev="2.12.8" rev-constraint-default="2.12.8" rev-constraint-dynamic="2.12.8" callerrev="0.1" extra-info.apiURL="http://www.scala-lang.org/api/2.12.8/"/>

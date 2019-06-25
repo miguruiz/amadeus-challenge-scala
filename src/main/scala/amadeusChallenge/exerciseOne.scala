@@ -28,10 +28,7 @@ object exerciseOne {
    * name - countLines
    * desc - prints the number of lines and unique lines inside a given file
    */
-  def countLines (filePath: String): Unit ={
-
-    // Create a SparkContext object
-    val sc = new SparkContext("local",AppName)
+  def countLines (filePath: String, sc: SparkContext): Unit ={
 
     // Read file to RDD
     val fileRdd = sc.textFile(filePath)
@@ -53,9 +50,6 @@ object exerciseOne {
     println(s"   Total lines : $totalLinesFormatted")
     println(s"   Unique lines:  $uniqueLinesFormatted")
 
-    // stop sparkContext
-    sc.stop()
-
   }
 
   /*
@@ -63,7 +57,7 @@ object exerciseOne {
    * desc - creates a file without duplicated lines from a given file
     */
 
-  def removeDuplicates (filePath: String, delimiter: String = "^", header: String = "true"): String ={
+  def removeDuplicates (filePath: String, spark: SparkSession, delimiter: String = "^", header: String = "true"): String ={
 
     // Create a SparkContext object
     val spark = SparkSession.builder.appName(AppName).getOrCreate()

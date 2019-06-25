@@ -29,10 +29,10 @@ object exerciseTwo {
   * Recibe: fecha,
   */
 
-  def topAirports (filePath: String, delimiter: String = "^", header: String = "true"): Unit ={
+  def topAirports (filePath: String, spark: SparkSession, sc: SparkContext, delimiter: String = "^", header: String = "true"): Unit ={
 
     // Create Spark Session
-    val spark = SparkSession.builder.appName(AppName).getOrCreate()
+    //val spark = SparkSession.builder.appName(AppName).getOrCreate()
 
 
     val dfFile = spark.read
@@ -54,28 +54,26 @@ object exerciseTwo {
     val defSel2013Clean = dfSel2013.withColumn("arr_port", trim(col("arr_port")))
 
     // Group by airport adding passangers and sort by num of pax
-    defSel2013Clean.groupBy("arr_port")
+    val topAirports = defSel2013Clean.groupBy("arr_port")
       .agg(sum("pax").alias("pax_sum"))
       .sort(desc("pax_sum"))
 
     //Joining top 10 airports dataframe with GeoBases information
 
-    val iataNames = getAirportNames()
+    val iataNames = getAirportNames(sc)
 
-    val topAirportsNames = defSel2013Clean.join(iataNames,
+    val topAirportsNames = topAirports.join(iataNames,
       defSel2013Clean.col("arr_port") === iataNames.col("IATA_code"))
 
-    topAirportsNames.sort(desc("pax_sum")).show()
 
-    spark.stop()
+    topAirportsNames.sort(desc("pax_sum")).show(10)
 
   }
 
 
-  def getAirportNames (url: String = url): DataFrame = {
+  def getAirportNames (sc:SparkContext, url: String = url): DataFrame = {
 
     // create a SparkContext object
-    val sc = new SparkContext("local",AppName)
 
     // Create Spark Session
     val spark = SparkSession.builder.appName(AppName).getOrCreate()
@@ -98,11 +96,8 @@ object exerciseTwo {
       .select((0 until maxCols).map(i => $"arr"(i).as(s"col_$i")): _*)
 
     // Selecting columns IATA code and Airport Name
-    val iataNames = geoContentDf.select("col_0","col_1").toDF(newColNames: _*)
+    geoContentDf.select("col_0","col_1").toDF(newColNames: _*)
 
-
-    spark.close()
-    iataNames.sort(desc("pax_sum"))
   }
 
 
