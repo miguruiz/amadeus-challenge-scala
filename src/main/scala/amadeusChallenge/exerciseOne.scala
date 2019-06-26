@@ -7,7 +7,7 @@ package amadeusChallenge
 
 // import required  classes
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 import java.text.NumberFormat.getIntegerInstance
 
 
@@ -109,9 +109,11 @@ object exerciseOne {
     //Creating the name of the new path by removing extension and
     val fileNewPath = filePath.dropRight(4) + extension
 
+    //Save to file; overwrite if exist
     df
       .coalesce(1)
       .write.format("csv")
+      .mode(SaveMode.Overwrite)
       .option("header", header)
       .option("delimiter", delimiter)
       .save(fileNewPath)

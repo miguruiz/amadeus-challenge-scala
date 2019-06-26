@@ -10,6 +10,8 @@ package amadeusChallenge
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions.{col, desc, sum, trim}
+import scala.util.{Try, Success, Failure}
+
 
 
 object exerciseTwo {
@@ -28,22 +30,13 @@ object exerciseTwo {
     //Calculate the top airports
     val dfTopAirports = topAirports(dfBookings)
 
-    var error = true
 
-    // If there is no internet conexion, print top 10 airport without the names.
-    try{
-      //Include airport names
-      val dfTopAiportsWithNames = includeAirportNames(dfTopAirports, spark, sc)
-      printTopN(dfTopAiportsWithNames, 10)
-      error = false
+    // Print top 10
+    val result = Try {includeAirportNames(dfTopAirports, spark, sc)}  match {
+      case Success(_) => includeAirportNames(dfTopAirports, spark, sc)
+      case Failure(_) => dfTopAirports
     }
-
-    if (error==true) printTopN(dfTopAirports, 10)
-
-
-
-
-    //Print top 10
+    printTopN(result, 10)
 
   }
 

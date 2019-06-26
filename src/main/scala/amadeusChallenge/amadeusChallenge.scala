@@ -10,23 +10,21 @@ object amadeusChallenge {
 
   def main(args: Array[String]): Unit = {
 
-
+    /*
     val bookingsPath: String = "../../Data/challenge_scala/bookings_testing.csv"
     val searchesPath: String = "../../Data/challenge_scala/searches_testing.csv"
+    */
 
 
-    /*
-    if (args.length == 2){
+    if (args.length != 2){
       println("Error, two parameters were expected")
       return
     }
-    */
 
-    /*
     // Assign arguments to corresponding variables
     val bookingsPath: String = obtainPath(args, "bookings")
     val searchesPath: String = obtainPath(args, "searches")
-    */
+
 
     //Validate if files exists
     if (!(Files.exists(Paths.get(bookingsPath)) && Files.exists(Paths.get(searchesPath)))){
@@ -79,7 +77,7 @@ object amadeusChallenge {
   }
 
   /**
-    * Returns true if all columns are found inside a DataFrame
+    * Validates if the given list of columns exists inside the given Dataframe
     */
   def validateColumns(filePath: String, columns: List[String], spark: SparkSession): Boolean = {
 
