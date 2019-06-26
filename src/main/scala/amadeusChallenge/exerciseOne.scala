@@ -1,10 +1,6 @@
 /*
  * Name: exerciseOne.scala
- * Description:
- *
- * Pending?
- *  - Am I using the sparkContect corretly?
- *  - File name of
+ * Description: Count lines and
  *
  * TESTS:
  *  - ensure that we receive .csv files
@@ -17,67 +13,84 @@ import org.apache.spark.SparkContext
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import java.text.NumberFormat.getIntegerInstance
 
-
+import org.apache.spark.rdd.RDD
 
 object exerciseOne {
 
   private val AppName = "AmadeusExerciseOne"
 
+  /*
+   * Executes exercise one (counting lines, and removing duplicates), and returns the name of the new files.
+   */
+  def execute (filePathBookings: String, filePathSearches: String, spark: SparkSession): (String, String) ={
+
+    //Read files
+    val dfBookings = readFile(filePathBookings, spark)
+    val dfSearches = readFile(filePathSearches, spark)
+
+    //Calculate lines for Bookings
+    val bookingsLines = countLines(dfBookings)
+    val searchesLines = countLines(dfSearches)
+
+    //Print Results
+    printResults(bookingsLines._1,bookingsLines._2,filePathBookings )
+    printResults(searchesLines._1, searchesLines._2,filePathSearches)
+
+    //Remove duplicates
+    val dfBookingsUnique = removeDuplicates(dfBookings)
+    val dfSearchesUnique = removeDuplicates(dfSearches)
+
+    //Save to file
+    val bookingsUniquePath = saveFile(dfBookingsUnique,filePathBookings, "_unique.csv", spark)
+    val searchesUniquePath = saveFile (dfSearchesUnique,filePathSearches, "_unique.csv", spark )
+
+    (bookingsUniquePath, searchesUniquePath)
+  }
 
   /*
-   * Counts and print the unique and total lines from a given filepath
-   */
-  def countLines (filePath: String, sc: SparkContext): Unit ={
-
-    // Read file to RDD
-    val fileRdd = sc.textFile(filePath)
-
-    //Count total lines
-    val totalLines = fileRdd.count()
-
-    //Count unique lines - excluding duplicates
-    val uniqueLines = fileRdd.distinct().count()
+  * Prints results
+  */
+  def printResults (totalLines: Long, uniqueLines: Long, filePath: String): Unit ={
 
     //val formatter = java.text.NumberFormat.getIntegerInstance
     val totalLinesFormatted = getIntegerInstance.format(totalLines)
     val uniqueLinesFormatted = getIntegerInstance.format(uniqueLines)
 
-    //Printing results
     println(s"TOTAL LINES IN $filePath")
     println("------------------------------")
     println("")
     println(s"   Total lines : $totalLinesFormatted")
     println(s"   Unique lines:  $uniqueLinesFormatted")
-
   }
 
   /*
-   * Given a file, creates a new one without duplicated lines. Returns the new filepath.
+  * Given a dataframe, counts total and unique lines, and returns a touple with total and unique lines
+  */
+  def countLines (df: DataFrame): (Long, Long) ={
+
+    val totalLines = df.count()
+    val uniqueLines = df.distinct().count()
+
+    (totalLines,uniqueLines)
+  }
+
+
+  /*
+   * Given a file, removes duplicates.
    */
 
-  def removeDuplicates (filePath: String, spark: SparkSession): String ={
-
-    // Read file into DataFrame
-    val dfFile = readFile(filePath, spark)
-
-    // Remove duplicate
-    val dfFileUnique = dfFile.distinct()
-
-    //Creating the name of the new path by removing extension and
-    val fileNewPath = filePath.dropRight(4) + "_unique.csv"
-
-    //Save to file using same delimiter and header
-    saveFile(dfFileUnique,fileNewPath, spark)
-
-    fileNewPath
-
+  def removeDuplicates (df: DataFrame): DataFrame ={
+    df.distinct()
   }
 
   /*
    * Reads a file into dataframe, and returns the dataframe
    */
 
-  def readFile(filePath: String, spark: SparkSession, delimiter: String = "^", header:Boolean=true): DataFrame = {
+  def readFile(filePath: String,
+               spark: SparkSession,
+               delimiter: String = "^",
+               header:Boolean=true): DataFrame = {
     spark.read
       .option("delimiter", delimiter)
       .option("header", header)
@@ -85,22 +98,26 @@ object exerciseOne {
   }
 
   /*
-   * Save a file to csv
+   * Save a file to csv, returns the new file path
    */
-  def saveFile(df: DataFrame, filePath: String, spark: SparkSession, delimiter: String = "^", header:Boolean=true): Unit ={
+  def saveFile(df: DataFrame,
+               filePath: String,
+               extension: String,
+               spark: SparkSession,
+               delimiter: String = "^",
+               header:Boolean=true): String ={
+
+    //Creating the name of the new path by removing extension and
+    val fileNewPath = filePath.dropRight(4) + extension
+
     df
       .coalesce(1)
       .write.format("csv")
       .option("header", header)
       .option("delimiter", delimiter)
-      .save(filePath)
+      .save(fileNewPath)
 
+    fileNewPath
   }
 }
 
-
-/*
-CONSIDERATIONS:
-- Probably having sparkSession and SparkContet in the same application is uneeded.
-
-*/
