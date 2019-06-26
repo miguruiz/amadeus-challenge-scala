@@ -12,9 +12,20 @@ object amadeusChallenge {
     val filePath_Bookings: String = "../../Data/challenge_scala/bookings_testing.csv"
     val filePath_Searches: String = "../../Data/challenge_scala/searches_testing.csv"
 
-    /*
-      VERIFY THAT FIRST FILE IS BOOKINGS, SECOND IS SEARCHES
-     */
+    val argsLength = args.length
+
+    if (argsLength != 2) {
+      println(s"Two parameters were expected, $argsLength were received")
+      return
+    }
+
+    val (bookingsFilePath,searchesFilePath) = namesCheck(args)
+
+    if (bookingsFilePath == "Error" || searchesFilePath == "Error"){
+      println(s"bookings.csv and searches.csv were expected, but not received")
+      return
+    }
+
 
     // Initialize SparkContet & Spark Session
     val sc = new SparkContext("local","amadeus")
@@ -34,11 +45,43 @@ object amadeusChallenge {
     spark.stop()
   }
 
+  /**
+    * Checks if the provided filenames contain booking and searches.
+    */
+  def namesCheck(args: Array[String]): (String, String)={
+    val bookingsFilePath = {
+      if (args(0).contains("booking"))
+        args(0)
+      else if (args(1).contains("booking"))
+        args(1)
+      else
+        "Error"
+    }
+
+    val searchesFilePath = {
+      if (args(0).contains("searches"))
+        args(0)
+      else if (args(1).contains("searches"))
+        args(1)
+      else
+        "Error"
+    }
+    (bookingsFilePath,searchesFilePath)
+  }
+
+  /**
+    * Checks if Booking exists, is not empty, and contains the colums used in the application.
+    */
+  def qualityBookingsCheck(args: Array[String]): String ={
+    "Pending"
+  }
+
+  /**
+    * Checks if Booking exists, is not empty, and contains the colums used in the application.
+    */
+  def qualitySearchesCheck(args: Array[String]): String ={
+    "Pending"
+  }
+
 
 }
-
-
-/*
-CONSIDERATIONS:
-- Probably having sparkSession and SparkContet in the same application is uneeded.
-*/
