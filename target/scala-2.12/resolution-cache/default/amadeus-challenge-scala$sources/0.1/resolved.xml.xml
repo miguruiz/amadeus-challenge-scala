@@ -4,7 +4,7 @@
 		module="amadeus-challenge-scala$sources"
 		revision="0.1"
 		status="integration"
-		publication="20190626165829"
+		publication="20190626171921"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

@@ -1,8 +1,8 @@
-/*
- * Name: exerciseOne.scala
- * Description: Count lines and
- *
- */
+/**
+  * Name: exerciseOne.scala
+  * Description:
+  *
+  */
 package amadeusChallenge
 
 // import required  classes

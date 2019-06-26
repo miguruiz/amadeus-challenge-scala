@@ -1,3 +1,7 @@
+/**
+  * Name: amadeusChallenge.scala
+  * Description:
+  */
 package amadeusChallenge
 
 import org.apache.spark.sql.SparkSession
@@ -16,51 +20,59 @@ object amadeusChallenge {
     */
 
 
-    if (args.length != 2){
+    if (args.length != 2){ // Validate number of parameters provided
       println("Error, two parameters were expected")
-      return
+    } else{
+      // Assign arguments to corresponding variables
+      val bookingsPath: String = obtainPath(args, "bookings")
+      val searchesPath: String = obtainPath(args, "searches")
+
+      if (!(Files.exists(Paths.get(bookingsPath)) && Files.exists(Paths.get(searchesPath)))){ //Validate if files exists
+        println("Error, at least one of the files does not exist.")
+      }else {
+        // Initialize SparkContet & Spark Session
+        val sc = new SparkContext("local", "amadeus")
+        val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
+
+
+        //Validate if column exist
+        val bookingsColumns = List ("act_date","arr_port","pax","cre_date","dep_port","arr_port")
+        val searchesColumns = List ("Date","Origin","Destination")
+
+        val BookingsValidation = validateColumns(bookingsPath,bookingsColumns,spark)
+        val SearchesValidation = validateColumns(searchesPath,searchesColumns,spark)
+
+        if (!(BookingsValidation && SearchesValidation)){
+          println("Error. columns not found")
+
+        } else{
+            println ("")
+            println("Execution of exercise ONE starts ")
+            println ("")
+           //Exercise One - count Lines
+           val (bookingsUniquePath, searchesUniquePath) = exerciseOne.execute(bookingsPath, searchesPath, spark)
+
+            println ("")
+            println("Execution of exercise TWO starts ")
+            println ("")
+           //Exercise Two - top 10 airports
+           exerciseTwo.execute(bookingsUniquePath, spark, sc)
+
+            println ("")
+            println("Execution of exercise THREE starts ")
+            println ("")
+           //Exercise Three - searches that created bookings
+           exerciseThree.execute(bookingsUniquePath, searchesUniquePath, spark)
+
+        }
+
+        sc.stop()
+        spark.stop()
+      }
     }
-
-    // Assign arguments to corresponding variables
-    val bookingsPath: String = obtainPath(args, "bookings")
-    val searchesPath: String = obtainPath(args, "searches")
-
-
-    //Validate if files exists
-    if (!(Files.exists(Paths.get(bookingsPath)) && Files.exists(Paths.get(searchesPath)))){
-      println("Error, at least one of the files does not exist.")
-      return
-    }
-
-    // Initialize SparkContet & Spark Session
-    val sc = new SparkContext("local", "amadeus")
-    val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
-
-
-    //Validate if column exist
-    val bookingsColumns = List ("act_date","arr_port","pax","cre_date","dep_port","arr_port")
-    val searchesColumns = List ("Date","Origin","Destination")
-
-    val BookingsValidation = validateColumns(bookingsPath,bookingsColumns,spark)
-    val SearchesValidation = validateColumns(searchesPath,searchesColumns,spark)
-
-    if (!(BookingsValidation && SearchesValidation)){
-      println("Error. columns not found")
-      return
-    }
-
-
-    //Exercise One - count Lines
-    val (bookingsUniquePath, searchesUniquePath) = exerciseOne.execute(bookingsPath, searchesPath, spark)
-
-    //Exercise Two - top 10 airports
-    exerciseTwo.execute(bookingsUniquePath, spark, sc)
-
-    //Exercise Three - searches that created bookings
-    exerciseThree.execute(bookingsUniquePath, searchesUniquePath, spark)
-
-    sc.stop()
-    spark.stop()
+    println ("")
+    println("End of program!")
+    println ("")
   }
 
 

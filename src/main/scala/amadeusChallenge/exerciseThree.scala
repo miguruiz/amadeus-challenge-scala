@@ -37,7 +37,7 @@ object exerciseThree {
     //Save searches to file
     //exerciseOne.saveFile(dfSearchesOriginalWithBookings,filePath_Searches,"_with_bookings.csv", spark)
 
-    dfSearchesOriginalWithBookings.show()
+    dfSearchesOriginalWithBookings.show(100)
 
   }
   /*

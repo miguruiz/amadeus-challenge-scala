@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="test-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20190626165829"/>
+		date="20190626171922"/>
 	<dependencies>
 		<module organisation="org.mortbay.jetty" name="jetty-sslengine">
 			<revision name="6.1.26" status="release" pubdate="20101110224548" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jetty.mortbay.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="217">

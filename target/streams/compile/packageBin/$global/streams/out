@@ -1,1 +1,37 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/amadeus-challenge-scala_2.12-0.1.jar[0m
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/amadeus-challenge-scala_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/exerciseThree.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/exerciseThree.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/exerciseTwo$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/exerciseTwo$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tests.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/tests.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/exerciseTwo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/exerciseTwo.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusExerciseFour.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusExerciseFour.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/exerciseOne.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/exerciseOne.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusExerciseTwo.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusExerciseTwo.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/hs_err_pid15239.log[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/hs_err_pid15239.log[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tests_2.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/tests_2.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusExerciseOne.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusExerciseOne.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/amadeusChallenge.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/amadeusChallenge.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/amadeusChallenge$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/amadeusChallenge$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/exerciseOne$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/exerciseOne$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusExerciseThree.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusExerciseThree.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	amadeusChallenge/exerciseThree$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/amadeusChallenge/exerciseThree$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	removeDuplicates.sc[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/dsc/challenge_scala/amadeus-challenge-scala/target/scala-2.12/classes/removeDuplicates.sc[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
