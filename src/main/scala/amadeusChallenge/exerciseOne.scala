@@ -44,11 +44,12 @@ object exerciseOne {
     val bookingsUniquePath = saveFile(dfBookingsUnique,filePathBookings, "_unique.csv", spark)
     val searchesUniquePath = saveFile (dfSearchesUnique,filePathSearches, "_unique.csv", spark )
 
+    // Return new file paths
     (bookingsUniquePath, searchesUniquePath)
   }
 
   /*
-  * Prints results
+  * Prints total and unique lines results
   */
   def printResults (totalLines: Long, uniqueLines: Long, filePath: String): Unit ={
 
@@ -61,6 +62,7 @@ object exerciseOne {
     println("")
     println(s"   Total lines : $totalLinesFormatted")
     println(s"   Unique lines:  $uniqueLinesFormatted")
+    println("")
   }
 
   /*
@@ -105,7 +107,8 @@ object exerciseOne {
                extension: String,
                spark: SparkSession,
                delimiter: String = "^",
-               header:Boolean=true): String ={
+               header:Boolean=true
+              ): String ={
 
     //Creating the name of the new path by removing extension and
     val fileNewPath = filePath.dropRight(4) + extension

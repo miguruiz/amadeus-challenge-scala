@@ -17,14 +17,16 @@ object amadeusChallenge {
      */
 
     // Initialize SparkContet & Spark Session
-    //val sc = new SparkContext("local","amadeus")
+    val sc = new SparkContext("local","amadeus")
     val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
 
 
     //Exercise One - count Lines
-    val uniquePaths = exerciseOne.execute(filePath_Bookings,filePath_Searches,spark)
+    //val bookingsUniquePath, searchesUniquePath  = exerciseOne.execute(filePath_Bookings,filePath_Searches,spark)
 
-    
+    //Exercise Two - top 10 airports
+    //exerciseTwo.execute(filePath_Bookings,spark, sc)
+
     spark.stop()
   }
 

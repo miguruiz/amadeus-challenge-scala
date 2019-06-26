@@ -1,69 +1,118 @@
 package amadeusChallenge
 
-import org.apache.spark.sql.{SparkSession}
+import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions.{col, lit, monotonically_increasing_id, substring, trim}
 
 object exerciseThree {
 
-  /*
-   * Given Bookings.csv and Searches.csv, creates a new file similar to Searches.csv with an additional column "booking"
-   * that contains value "1" if the searched finished in a booking, and "0" if not.
-   */
-  def mergeSearchesBookings(filePath_Bookings: String, filePath_Searches:String, spark: SparkSession): Unit = {
 
+  def execute(filePath_Bookings: String, filePath_Searches:String, spark: SparkSession): Unit = {
+
+    //Read files into datagrames
     val dfBookingsTemp = exerciseOne.readFile(filePath_Bookings, spark)
     val dfSearchesTemp = exerciseOne.readFile(filePath_Searches, spark)
 
-    //Clean column names in both dataframes
+    //Adding index column to searches
+    val dfSearchesOriginal = dfSearchesTemp.withColumn("index", monotonically_increasing_id())
 
-    val dfBookings = exerciseTwo.cleanColumnNames(dfBookingsTemp)
-    val dfSearches = exerciseTwo.cleanColumnNames(dfSearchesTemp)
+    //Process files - clean data, select columns to be merged.
+    val dfBookingsReady = processBookings(dfBookingsTemp)
+    val dfSearchesReady = processSearches(dfSearchesOriginal)
+
+    //Merge Bookings and Searchesby booking date, flight origin and flight destination
+    val dfMerged = mergeSearchesBooking(dfBookingsReady,dfSearchesReady)
+
+    //Merge resulting merged file back to the original searches file
+    val dfSearchesOriginalWithBookings = mergeOriginal(dfSearchesOriginal,dfMerged)
+
+    //Save searches to file
+    exerciseOne.saveFile(dfSearchesOriginalWithBookings,filePath_Searches,"_with_bookings.csv", spark)
+    
+  }
+
+  def mergeOriginal (dfSearchesOriginal:DataFrame, dfMerged:DataFrame): DataFrame = {
+
+    // Select relevant columns from the merged file
+    val dfMergedRelevantColumns = dfMerged.select("index","booking")
+
+    // Merge bookings into Original Searches, and remove column index
+    val SearchesOriginalWithBookings = dfSearchesOriginal.join(
+      dfMergedRelevantColumns,
+      dfSearchesOriginal.col("index")===dfMergedRelevantColumns.col("index"), "left" )
+      .drop("index")
+
+    //Fill nulls in column "booking" with value 0, and remove column index
+    val searchesFinal = SearchesOriginalWithBookings.na.fill(0,Seq("booking"))
+
+    //Return riginal searches dataframe with bookings column
+    searchesFinal
+  }
+
+
+  /*
+  * left merge bookings on Serches on booking date, flight origin and flight destination
+  */
+  def mergeSearchesBooking (dfBookings: DataFrame, dfSearches:DataFrame): DataFrame = {
+
+    // Merge files Bookings with Searches on the Date, flight origin and destination
+    dfSearches.join(dfBookings,
+      dfSearches.col("Date") === dfBookings.col("cre_date") &&
+        dfSearches.col("Origin") === dfBookings.col("dep_port") &&
+        dfSearches.col("Destination") === dfBookings.col("arr_port"), "left")
+  }
+
+
+
+
+  /*
+  * Process bookings
+  */
+  def processBookings(dfBookings: DataFrame): DataFrame = {
 
     //Adding bookings column with "ones" to Bookings
-    val dfBookingsBin = dfBookings.withColumn("booking", lit(1))
+    val dfBookings = dfBookingsTemp.withColumn("booking", lit(1))
 
-    //Adding index column to searches
-    val dfSearchesSelIdx = dfSearches.withColumn("index", monotonically_increasing_id())
+    //Clean column names
+    val dfBookingsColumn = exerciseTwo.cleanColumnNames(dfBookings)
 
-    /*
-      PENDING - Cleaning for Nulls.
-     */
+    //Select columns to be merged
+    val dfBookingsColumnSel = dfBookingsColumn.select("arr_port","dep_port", "cre_date", "booking")
 
-    //Selecting only the necessary columns
-    val dfSearchesSelIdxSel = dfSearchesSelIdx.select("Origin","Destination", "Date", "index")
-    val dfBookingsBinSel = dfBookingsBin.select("arr_port","dep_port", "cre_date", "booking")
+    //Clean nulls
+    val dfBookingsClean = exerciseTwo.cleanNulls(dfBookingsColumnSel)
 
     // Clean date on Bookings & stripping airport columns & remove duplicates
-    val dfBookingsBinSelRdy = dfBookingsBinSel
+    val dfBookingsReady = dfBookingsClean
       .withColumn("cre_date", substring(col("cre_date"),1,10) )
       .withColumn("dep_port", trim(col("dep_port")))
       .withColumn("arr_port", trim(col("arr_port")))
       .distinct()
 
+    //Return dfBookings ready to me merged
+    dfBookingsReady
+  }
+
+  /*
+* Process searches
+*/
+  def processSearches(dfSearches: DataFrame): DataFrame = {
+
+    //Clean column names
+    val dfSearchesColumn = exerciseTwo.cleanColumnNames(dfSearches)
+
+    //Selecting only the necessary columns
+    val dfSearchesColumnSel = dfSearchesColumn.select("Origin","Destination", "Date", "index")
+
+    //Removing null values
+    val dfSearchesSelClean = exerciseTwo.cleanNulls(dfSearchesColumnSel)
+
     // Clean columns Origin & Destination in Searches
-    val dfSearchesSelIdxSelRdy = dfSearchesSelIdxSel.withColumn("Origin", trim(col("Origin")))
+    val dfSearchReady = dfSearchesSelClean.withColumn("Origin", trim(col("Origin")))
       .withColumn("Destination", trim(col("Destination")))
 
-    // Merge files Bookings with Searches on the Date, flight origin and destination
-    val searchesWithBookings = dfSearchesSelIdxSelRdy.join(dfBookingsBinSelRdy,
-      dfSearchesSelIdxSelRdy.col("Date") === dfBookingsBinSelRdy.col("cre_date") &&
-        dfSearchesSelIdxSelRdy.col("Origin") === dfBookingsBinSelRdy.col("dep_port") &&
-        dfSearchesSelIdxSelRdy.col("Destination") === dfBookingsBinSelRdy.col("arr_port"), "left")
-
-    // Merge column "bookings" to the original Searches file
-    val searchesWithBookings_2 = searchesWithBookings.select("index","booking")
-    val SearchesOriginalWithBookings = dfSearchesSelIdx.join(searchesWithBookings_2,
-      dfSearchesSelIdx.col("index")===searchesWithBookings_2.col("index"), "left" ).drop("index")
-
-    //Fill nulls in column "booking" with value 0, and remove column index
-    val searchesFinal = SearchesOriginalWithBookings.na.fill(0,Seq("booking"))
-    searchesFinal.show()
-
-    //New file path
-    val fileNewPath = filePath_Searches.dropRight(4) + "_with_bookings.csv"
-
-    exerciseOne.saveFile(searchesFinal,fileNewPath,spark)
-
+    //Return searches ready to be merged
+    dfSearchReady
   }
+
 
 }
