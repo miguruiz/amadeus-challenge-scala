@@ -2,6 +2,7 @@ package amadeusChallenge
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkContext
+import java.nio.file.{Paths, Files}
 
 
 object amadeusChallenge {
@@ -9,78 +10,60 @@ object amadeusChallenge {
   def main(args: Array[String]): Unit = {
 
     //Path Variables
-    val filePath_Bookings: String = "../../Data/challenge_scala/bookings_testing.csv"
-    val filePath_Searches: String = "../../Data/challenge_scala/searches_testing.csv"
+    val filePath_Bookings_temp: String = "../../Data/challenge_scala/bookings_testing.csv"
+    val filePath_Searches_temp: String = "../../Data/challenge_scala/searches_testing.csv"
 
-    val argsLength = args.length
-
-    if (argsLength != 2) {
-      println(s"Two parameters were expected, $argsLength were received")
+    if (args.length == 2){
+      println("Error, two parameters were expected")
       return
     }
 
-    val (bookingsFilePath,searchesFilePath) = namesCheck(args)
+    // Assign arguments to correspomding variables
+    val bookingsPath: String = obtainPath(args, "bookings")
+    val searchesPath: String = obtainPath(args, "searches")
 
-    if (bookingsFilePath == "Error" || searchesFilePath == "Error"){
-      println(s"bookings.csv and searches.csv were expected, but not received")
+
+    //Validate if files exists
+    if (!(Files.exists(Paths.get(bookingsPath)) && Files.exists(Paths.get(searchesPath)))){
+      println("Error, at least one of the files have not been found")
       return
     }
+
+
+    //Validate if column exist
+
+    
 
 
     // Initialize SparkContet & Spark Session
-    val sc = new SparkContext("local","amadeus")
+    val sc = new SparkContext("local", "amadeus")
     val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
 
 
     //Exercise One - count Lines
-    val (bookingsUniquePath, searchesUniquePath)  = exerciseOne.execute(filePath_Bookings,filePath_Searches,spark)
+    val (bookingsUniquePath, searchesUniquePath) = exerciseOne.execute(bookingsPath, searchesPath, spark)
 
     //Exercise Two - top 10 airports
-    exerciseTwo.execute(bookingsUniquePath,spark, sc)
+    exerciseTwo.execute(bookingsUniquePath, spark, sc)
 
     //Exercise Three - searches that created bookings
-    exerciseThree.execute(bookingsUniquePath,searchesUniquePath,spark)
+    exerciseThree.execute(bookingsUniquePath, searchesUniquePath, spark)
 
     sc.stop()
     spark.stop()
   }
 
-  /**
-    * Checks if the provided filenames contain booking and searches.
-    */
-  def namesCheck(args: Array[String]): (String, String)={
-    val bookingsFilePath = {
-      if (args(0).contains("booking"))
-        args(0)
-      else if (args(1).contains("booking"))
-        args(1)
-      else
-        "Error"
-    }
-
-    val searchesFilePath = {
-      if (args(0).contains("searches"))
-        args(0)
-      else if (args(1).contains("searches"))
-        args(1)
-      else
-        "Error"
-    }
-    (bookingsFilePath,searchesFilePath)
-  }
 
   /**
-    * Checks if Booking exists, is not empty, and contains the colums used in the application.
+    * Returns true if bookings.csv and searches.csv have been included as parameters
     */
-  def qualityBookingsCheck(args: Array[String]): String ={
-    "Pending"
-  }
-
-  /**
-    * Checks if Booking exists, is not empty, and contains the colums used in the application.
-    */
-  def qualitySearchesCheck(args: Array[String]): String ={
-    "Pending"
+  def obtainPath(args: Array[String], subString: String): String = {
+    if (args(0).contains(subString))
+      args(0)
+    else if (args(1).contains(subString))
+      args(0)
+    else
+      s"Error: $subString Not found."
   }
 
 

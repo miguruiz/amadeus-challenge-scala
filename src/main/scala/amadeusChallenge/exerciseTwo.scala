@@ -125,7 +125,6 @@ object exerciseTwo {
   def cleanColumnNames (df:DataFrame): DataFrame = {
     //Clean column names in both dataframes
     val newColumnNamesBookings = df.columns.map(_.replace(" ", ""))
-
     //Creating new dataframe with cleaned column names
     df.toDF(newColumnNamesBookings: _*)
   }
@@ -137,6 +136,7 @@ object exerciseTwo {
 
   def cleanNulls (df:DataFrame): DataFrame = {
     df.na.drop(how = "any")
+
   }
 
 
