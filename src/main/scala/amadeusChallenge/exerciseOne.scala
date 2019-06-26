@@ -2,18 +2,14 @@
  * Name: exerciseOne.scala
  * Description: Count lines and
  *
- * TESTS:
- *  - ensure that we receive .csv files
  */
 package amadeusChallenge
 
 // import required  classes
 
-import org.apache.spark.SparkContext
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import java.text.NumberFormat.getIntegerInstance
 
-import org.apache.spark.rdd.RDD
 
 object exerciseOne {
 

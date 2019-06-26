@@ -22,11 +22,15 @@ object amadeusChallenge {
 
 
     //Exercise One - count Lines
-    //val bookingsUniquePath, searchesUniquePath  = exerciseOne.execute(filePath_Bookings,filePath_Searches,spark)
+    val (bookingsUniquePath, searchesUniquePath)  = exerciseOne.execute(filePath_Bookings,filePath_Searches,spark)
 
     //Exercise Two - top 10 airports
-    //exerciseTwo.execute(filePath_Bookings,spark, sc)
+    exerciseTwo.execute(bookingsUniquePath,spark, sc)
 
+    //Exercise Three - searches that created bookings
+    exerciseThree.execute(bookingsUniquePath,searchesUniquePath,spark)
+
+    sc.stop()
     spark.stop()
   }
 

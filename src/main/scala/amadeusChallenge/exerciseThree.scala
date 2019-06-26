@@ -6,6 +6,10 @@ import org.apache.spark.sql.functions.{col, lit, monotonically_increasing_id, su
 object exerciseThree {
 
 
+  /*
+   * Exercise Three: Creates a searches.csv file wth an additional column named "bookings",
+   * with value "1" if that searches created a booking, or "0" if it didnt.
+   */
   def execute(filePath_Bookings: String, filePath_Searches:String, spark: SparkSession): Unit = {
 
     //Read files into datagrames
@@ -26,10 +30,14 @@ object exerciseThree {
     val dfSearchesOriginalWithBookings = mergeOriginal(dfSearchesOriginal,dfMerged)
 
     //Save searches to file
-    exerciseOne.saveFile(dfSearchesOriginalWithBookings,filePath_Searches,"_with_bookings.csv", spark)
-    
-  }
+    //exerciseOne.saveFile(dfSearchesOriginalWithBookings,filePath_Searches,"_with_bookings.csv", spark)
 
+    dfSearchesOriginalWithBookings.show()
+
+  }
+  /*
+   * Merges
+   */
   def mergeOriginal (dfSearchesOriginal:DataFrame, dfMerged:DataFrame): DataFrame = {
 
     // Select relevant columns from the merged file
@@ -63,11 +71,10 @@ object exerciseThree {
 
 
 
-
   /*
-  * Process bookings
+  * Process bookings : Selects relevant columns, and cleans the column names and row values (nulls, trim).
   */
-  def processBookings(dfBookings: DataFrame): DataFrame = {
+  def processBookings(dfBookingsTemp: DataFrame): DataFrame = {
 
     //Adding bookings column with "ones" to Bookings
     val dfBookings = dfBookingsTemp.withColumn("booking", lit(1))
@@ -93,7 +100,7 @@ object exerciseThree {
   }
 
   /*
-* Process searches
+* Process searches: Selects relevant columns, and cleans the column names and row values (nulls, trim).
 */
   def processSearches(dfSearches: DataFrame): DataFrame = {
 
