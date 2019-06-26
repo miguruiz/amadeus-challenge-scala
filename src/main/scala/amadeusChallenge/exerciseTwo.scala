@@ -1,15 +1,9 @@
-/*
- * Name: exerciseTwo.scala
- * Description:
- *
- * Pending?
- *  - How to make more versatile topTenAirports to receive different files but with Date, Airports, Pax
- *  - Remove Nulls
- *  - Mejora... hacer un objeto, que sea TopAirports con atributo DataFrame... y métodos: top-10, y un booleano para los airport names... otro para cities.
- * TESTS:
- * - check that the file is boookings.csv
- *
- */
+/**
+  * Name: exerciseTwo.scala
+  * Description:
+  *
+  */
+
 package amadeusChallenge
 
 // import required  classes
@@ -23,9 +17,9 @@ object exerciseTwo {
   val url: String ="https://raw.githubusercontent.com/opentraveldata/geobases/public/GeoBases/DataSources/Airports/GeoNames/airports_geonames_only_clean.csv"
 
 
-  /*
-   * Calculates and prints the top 10 airports by passanger.
-   */
+/**
+  * Calculates and prints the top 10 airports by passanger.
+  */
   def execute (bookingFilePath: String, spark: SparkSession, sc: SparkContext): Unit ={
 
     // Create Spark Session
@@ -34,17 +28,28 @@ object exerciseTwo {
     //Calculate the top airports
     val dfTopAirports = topAirports(dfBookings)
 
-    //Include airport names
-    val dfTopAiportsWithNames = includeAirportNames(dfTopAirports, spark, sc)
+    var error = true
+
+    // If there is no internet conexion, print top 10 airport without the names.
+    try{
+      //Include airport names
+      val dfTopAiportsWithNames = includeAirportNames(dfTopAirports, spark, sc)
+      printTopN(dfTopAiportsWithNames, 10)
+      error = false
+    }
+
+    if (error==true) printTopN(dfTopAirports, 10)
+
+
+
 
     //Print top 10
-    printTopN(dfTopAiportsWithNames, 10)
 
   }
 
-  /*
-   * Given bookings.csv, retunrs a dataframe with airports sorted by number of passangers
-   */
+/**
+  * Given bookings.csv, retunrs a dataframe with airports sorted by number of passangers
+  */
   def topAirports (dfBookings: DataFrame): DataFrame ={
 
     //Clean column names
@@ -65,16 +70,16 @@ object exerciseTwo {
       .sort(desc("pax_sum"))
   }
 
-  /*
+/**
   * Prints the n top airports
   */
   def printTopN (df: DataFrame, n: Int): Unit ={
     df.show(n)
   }
 
-  /*
-    * Adds iata airport names to a givendataframe.
-    */
+/**
+  * Adds iata airport names to a givendataframe.
+  */
   def includeAirportNames (topAirports: DataFrame,
                            spark:SparkSession,
                            sc:SparkContext,
@@ -91,7 +96,7 @@ object exerciseTwo {
 
   }
 
-  /*
+/**
   * Returns a dataframe with Iata code and airport names from Geobases
   */
 
@@ -118,7 +123,7 @@ object exerciseTwo {
     geoContentDf.select("col_0","col_1").toDF(newColNames: _*)
   }
 
-  /*
+/**
   * Cleanse the column names of a dataframe
   */
 
@@ -130,9 +135,9 @@ object exerciseTwo {
   }
 
 
-  /*
- * Returns dataframe without null values
- */
+/**
+  * Returns dataframe without null values
+  */
 
   def cleanNulls (df:DataFrame): DataFrame = {
     df.na.drop(how = "any")

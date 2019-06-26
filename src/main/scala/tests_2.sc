@@ -1,29 +1,26 @@
 
-val arg_0 = "0"
-val arg_1 = "1"
+import org.apache.spark.sql.{DataFrame, SparkSession}
+import java.text.NumberFormat.getIntegerInstance
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.SparkContext
+import scala.util.Try
 
-val bookingsFilePath = {
-  if (arg_0.contains("booking"))
-    arg_0
-  else if (arg_1.contains("booking"))
-    arg_1
-  else
-    "Error"
-}
+val bookingsFileTesting: String = "../dsc/Data/challenge_scala/bookings_testing.csv"
 
-val searchesFilePath = {
-  if (arg_0.contains("searches"))
-    arg_0
-  else if (arg_1.contains("searches"))
-    arg_1
-  else
-    "Error"
-}
 
-if (bookingsFilePath == "Error" || searchesFilePath == "Erro")
-  println("Unable to identify file names")
-  //return
-else
-  //DataQuality
-  // Bookings -> not empty, columns, X,Y,Z
-  // Searches -> not empty, columns, X,Y,Z
+val sc = new SparkContext("local", "amadeus")
+val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
+
+val df = spark.read
+  .option("delimiter", "^")
+  .option("header", true)
+  .csv(bookingsFileTesting)
+
+val bookingsColumns = List ("pax","dep_port","arr_port")
+val bc_length = bookingsColumns.length
+
+val aux= bookingsColumns.flatMap(c => Try(df(c)).toOption)
+
+val aux_2 = aux.length
+
+aux_2 == bc_length
