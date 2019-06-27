@@ -1,7 +1,10 @@
 /**
-  * Name: exerciseThree.scala
+  * Name: exerciseThree.scala - Matching searches with bookings
   * Description:
-  *
+  *   For every search in the searches file, find out whether the search ended up in a booking or not (using the info
+  *   in the bookings file). For instance, search and booking origin and destination should match. For the bookings
+  *   file, origin and destination are the columns dep_port and arr_port, respectively. Generate a CSV file with the
+  *   search data, and an additional field, containing 1 if the search ended up in a booking, and 0 otherwise.
   */
 package amadeusChallenge
 
@@ -11,7 +14,7 @@ import org.apache.spark.sql.functions.{col, lit, monotonically_increasing_id, su
 object exerciseThree {
 
 
-  /*
+  /**
    * Exercise Three: Creates a searches.csv file wth an additional column named "bookings",
    * with value "1" if that searches created a booking, or "0" if it didnt.
    */
@@ -40,7 +43,7 @@ object exerciseThree {
     dfSearchesOriginalWithBookings.show(100)
 
   }
-    /*
+    /**
      * Merges
      */
     def mergeOriginal (dfSearchesOriginal:DataFrame, dfMerged:DataFrame): DataFrame = {
@@ -62,9 +65,9 @@ object exerciseThree {
     }
 
 
-    /*
-    * left merge bookings on Serches on booking date, flight origin and flight destination
-    */
+    /**
+     * left merge bookings on Serches on booking date, flight origin and flight destination
+     */
     def mergeSearchesBooking (dfBookings: DataFrame, dfSearches:DataFrame): DataFrame = {
 
       // Merge files Bookings with Searches on the Date, flight origin and destination
@@ -76,9 +79,9 @@ object exerciseThree {
 
 
 
-    /*
-    * Process bookings : Selects relevant columns, and cleans the column names and row values (nulls, trim).
-    */
+    /**
+     * Process bookings : Selects relevant columns, and cleans the column names and row values (nulls, trim).
+     */
     def processBookings(dfBookingsTemp: DataFrame): DataFrame = {
 
       //Adding bookings column with "ones" to Bookings
@@ -104,9 +107,9 @@ object exerciseThree {
       dfBookingsReady
     }
 
-    /*
-  * Process searches: Selects relevant columns, and cleans the column names and row values (nulls, trim).
-  */
+    /**
+     * Process searches: Selects relevant columns, and cleans the column names and row values (nulls, trim).
+     */
     def processSearches(dfSearches: DataFrame): DataFrame = {
 
       //Clean column names

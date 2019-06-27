@@ -1,3 +1,10 @@
+/**
+  * Name: exerciseFourWebServiceBuilder.scala
+  *
+  * Description:
+  *   Web service builder
+  *
+  */
 package amadeusChallengeWebService
 
 import javax.servlet.Servlet

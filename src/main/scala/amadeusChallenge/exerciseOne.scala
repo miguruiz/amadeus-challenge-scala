@@ -1,6 +1,8 @@
 /**
-  * Name: exerciseOne.scala
+  * Name: exerciseOne.scala - reading files
+  *
   * Description:
+  *   Check the number of lines in each of the two files (bookings and searches)
   *
   */
 package amadeusChallenge
@@ -61,9 +63,9 @@ object exerciseOne {
     println("")
   }
 
-  /*
-  * Given a dataframe, counts total and unique lines, and returns a touple with total and unique lines
-  */
+  /**
+   * Given a dataframe, counts total and unique lines, and returns a touple with total and unique lines
+   */
   def countLines (df: DataFrame): (Long, Long) ={
 
     val totalLines = df.count()
@@ -73,7 +75,7 @@ object exerciseOne {
   }
 
 
-  /*
+  /**
    * Given a file, removes duplicates.
    */
 
@@ -81,7 +83,7 @@ object exerciseOne {
     df.distinct()
   }
 
-  /*
+  /**
    * Reads a file into dataframe, and returns the dataframe
    */
 
@@ -95,7 +97,7 @@ object exerciseOne {
       .csv(filePath)
   }
 
-  /*
+  /**
    * Save a file to csv, returns the new file path
    */
   def saveFile(df: DataFrame,

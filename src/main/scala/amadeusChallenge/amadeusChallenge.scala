@@ -1,6 +1,6 @@
 /**
-  * Name: amadeusChallenge.scala
-  * Description:
+  * Name: amadeusChallenge.scala -
+  * Description: receives arguments, and executes exercises one, two and three
   */
 package amadeusChallenge
 
@@ -14,13 +14,8 @@ object amadeusChallenge {
 
   def main(args: Array[String]): Unit = {
 
-    /*
-    val bookingsPath: String = "../../Data/challenge_scala/bookings_testing.csv"
-    val searchesPath: String = "../../Data/challenge_scala/searches_testing.csv"
-    */
-
-
-    if (args.length != 2){ // Validate number of parameters provided
+    // Validate number of parameters provided
+    if (args.length != 2){
       println("Error, two parameters were expected")
     } else{
       // Assign arguments to corresponding variables

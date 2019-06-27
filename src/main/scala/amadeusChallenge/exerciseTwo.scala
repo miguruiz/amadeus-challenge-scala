@@ -1,6 +1,15 @@
 /**
-  * Name: exerciseTwo.scala
+  * Name: exerciseTwo.scala - top 10 arrival airports in the world in 2013
   * Description:
+  * Arrival airport is the column arr_port. It is the IATA code for the airport
+  *
+  * To get the total number of passengers for an airport, you can sum the column pax, grouping by arr_port.
+  * Note that there is negative pax. That corresponds to cancelations. So to get the total number of passengers
+  * that have actually booked, you should sum including the negatives (that will remove the canceled bookings).
+  *
+  * Print the top 10 arrival airports in the standard output, including the number of passengers.
+  * Required: Get the name of the city or airport corresponding to that airport (programmatically, we suggest to
+  * have a look at OpenTravelData in Github)
   *
   */
 
