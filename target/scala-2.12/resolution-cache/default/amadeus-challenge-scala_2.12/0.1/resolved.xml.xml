@@ -4,7 +4,7 @@
 		module="amadeus-challenge-scala_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190625152128"
+		publication="20190627115907"
 	>
 		<description>
 		amadeus-challenge-scala
@@ -36,6 +36,7 @@
 		<dependency org="org.apache.spark" name="spark-sql_2.12" rev="2.4.2" conf="compile->default(compile)"/>
 		<dependency org="org.scalactic" name="scalactic_2.12" rev="3.0.8" conf="compile->default(compile)"/>
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.8" conf="test->default(compile)"/>
-		<dependency org="com.holdenkarau" name="spark-testing-base_2.12" rev="2.4.2_0.12.0" conf="test->default(compile)"/>
+		<dependency org="org.scalatra" name="scalatra_2.12" rev="2.5.4" conf="compile->default(compile)"/>
+		<dependency org="org.eclipse.jetty" name="jetty-webapp" rev="9.4.12.v20180830" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

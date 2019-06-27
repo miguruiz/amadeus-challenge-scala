@@ -22,7 +22,7 @@ object exerciseTwo {
 /**
   * Calculates and prints the top 10 airports by passanger.
   */
-  def execute (bookingFilePath: String, spark: SparkSession, sc: SparkContext): Unit ={
+  def execute (bookingFilePath: String, spark: SparkSession, sc: SparkContext): DataFrame ={
 
     // Create Spark Session
     val dfBookings = exerciseOne.readFile(bookingFilePath, spark)
@@ -38,6 +38,8 @@ object exerciseTwo {
     }
     printTopN(result, 10)
 
+    //Return result - used in the web service
+    result
   }
 
 /**
