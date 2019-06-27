@@ -4,7 +4,7 @@
 		module="amadeus-challenge-scala_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190627115907"
+		publication="20190627130447"
 	>
 		<description>
 		amadeus-challenge-scala
@@ -38,5 +38,7 @@
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.8" conf="test->default(compile)"/>
 		<dependency org="org.scalatra" name="scalatra_2.12" rev="2.5.4" conf="compile->default(compile)"/>
 		<dependency org="org.eclipse.jetty" name="jetty-webapp" rev="9.4.12.v20180830" conf="compile->default(compile)"/>
+		<dependency org="org.scalatra" name="scalatra-json_2.12" rev="2.5.4" conf="compile->default(compile)"/>
+		<dependency org="org.json4s" name="json4s-jackson_2.12" rev="3.2.11" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
