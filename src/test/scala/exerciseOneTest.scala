@@ -1,3 +1,9 @@
+/**
+  * Name: exerciseOneTest
+  *
+  * Description:
+  *   tests for exerciseOne
+  */
 package amadeusChallenge
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
@@ -5,10 +11,6 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 import org.apache.spark.SparkContext
 
 
-/**
-  * Test: countLines
-  * Desc: Unit tests for amadeusChallenge - exerciseOne - countLines
-  */
 
 class exerciseOneTest extends FunSuite with BeforeAndAfter {
 

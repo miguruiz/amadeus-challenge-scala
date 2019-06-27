@@ -1,3 +1,10 @@
+/**
+  * Name: exerciseTwoTest
+  *
+  * Description:
+  *   tests for exerciseTwo
+  */
+
 package amadeusChallenge
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
@@ -5,9 +12,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 import org.apache.spark.SparkContext
 
 
-/**
-  * Unit tests for amadeusChallenge - exerciseTwo - cleanColumnNames function
-  */
+
 
 class exerciseTwoTest extends FunSuite with BeforeAndAfter {
 
@@ -32,6 +37,9 @@ class exerciseTwoTest extends FunSuite with BeforeAndAfter {
       .csv(testFilePath)
   }
 
+  /**
+    * Unit tests for amadeusChallenge - exerciseTwo - cleanColumnNames function
+    */
   test("Testing function cleanColumnNames" ) {
     val actual = exerciseTwo.cleanColumnNames(df).columns
     val expected = columns

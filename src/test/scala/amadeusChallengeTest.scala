@@ -1,3 +1,9 @@
+/**
+  * Name: amadeusChallengeTest
+  *
+  * Description:
+  *   tests for amadeusChallenge
+  */
 package amadeusChallenge
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
