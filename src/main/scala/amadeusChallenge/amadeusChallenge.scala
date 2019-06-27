@@ -1,6 +1,9 @@
 /**
   * Name: amadeusChallenge.scala -
-  * Description: receives arguments, and executes exercises one, two and three
+  * Description:
+  *   Receives file paths of bookings.csv and searches.csv (in any order), does verifications on the folders, and
+  *   executes exercies one, two and three.
+  *
   */
 package amadeusChallenge
 
