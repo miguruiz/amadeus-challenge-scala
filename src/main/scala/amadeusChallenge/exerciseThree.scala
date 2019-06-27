@@ -40,91 +40,92 @@ object exerciseThree {
     dfSearchesOriginalWithBookings.show(100)
 
   }
-  /*
-   * Merges
-   */
-  def mergeOriginal (dfSearchesOriginal:DataFrame, dfMerged:DataFrame): DataFrame = {
+    /*
+     * Merges
+     */
+    def mergeOriginal (dfSearchesOriginal:DataFrame, dfMerged:DataFrame): DataFrame = {
 
-    // Select relevant columns from the merged file
-    val dfMergedRelevantColumns = dfMerged.select("index","booking")
+      // Select relevant columns from the merged file
+      val dfMergedRelevantColumns = dfMerged.select("index","booking")
 
-    // Merge bookings into Original Searches, and remove column index
-    val SearchesOriginalWithBookings = dfSearchesOriginal.join(
-      dfMergedRelevantColumns,
-      dfSearchesOriginal.col("index")===dfMergedRelevantColumns.col("index"), "left" )
-      .drop("index")
+      // Merge bookings into Original Searches, and remove column index
+      val SearchesOriginalWithBookings = dfSearchesOriginal.join(
+        dfMergedRelevantColumns,
+        dfSearchesOriginal.col("index")===dfMergedRelevantColumns.col("index"), "left" )
+        .drop("index")
 
-    //Fill nulls in column "booking" with value 0, and remove column index
-    val searchesFinal = SearchesOriginalWithBookings.na.fill(0,Seq("booking"))
+      //Fill nulls in column "booking" with value 0, and remove column index
+      val searchesFinal = SearchesOriginalWithBookings.na.fill(0,Seq("booking"))
 
-    //Return riginal searches dataframe with bookings column
-    searchesFinal
-  }
+      //Return riginal searches dataframe with bookings column
+      searchesFinal
+    }
 
 
-  /*
-  * left merge bookings on Serches on booking date, flight origin and flight destination
+    /*
+    * left merge bookings on Serches on booking date, flight origin and flight destination
+    */
+    def mergeSearchesBooking (dfBookings: DataFrame, dfSearches:DataFrame): DataFrame = {
+
+      // Merge files Bookings with Searches on the Date, flight origin and destination
+      dfSearches.join(dfBookings,
+        dfSearches.col("Date") === dfBookings.col("cre_date") &&
+          dfSearches.col("Origin") === dfBookings.col("dep_port") &&
+          dfSearches.col("Destination") === dfBookings.col("arr_port"), "left")
+    }
+
+
+
+    /*
+    * Process bookings : Selects relevant columns, and cleans the column names and row values (nulls, trim).
+    */
+    def processBookings(dfBookingsTemp: DataFrame): DataFrame = {
+
+      //Adding bookings column with "ones" to Bookings
+      val dfBookings = dfBookingsTemp.withColumn("booking", lit(1))
+
+      //Clean column names
+      val dfBookingsColumn = exerciseTwo.cleanColumnNames(dfBookings)
+
+      //Select columns to be merged
+      val dfBookingsColumnSel = dfBookingsColumn.select("arr_port","dep_port", "cre_date", "booking")
+
+      //Clean nulls
+      val dfBookingsClean = exerciseTwo.cleanNulls(dfBookingsColumnSel)
+
+      // Clean date on Bookings & stripping airport columns & remove duplicates
+      val dfBookingsReady = dfBookingsClean
+        .withColumn("cre_date", substring(col("cre_date"),1,10) )
+        .withColumn("dep_port", trim(col("dep_port")))
+        .withColumn("arr_port", trim(col("arr_port")))
+        .distinct()
+
+      //Return dfBookings ready to me merged
+      dfBookingsReady
+    }
+
+    /*
+  * Process searches: Selects relevant columns, and cleans the column names and row values (nulls, trim).
   */
-  def mergeSearchesBooking (dfBookings: DataFrame, dfSearches:DataFrame): DataFrame = {
+    def processSearches(dfSearches: DataFrame): DataFrame = {
 
-    // Merge files Bookings with Searches on the Date, flight origin and destination
-    dfSearches.join(dfBookings,
-      dfSearches.col("Date") === dfBookings.col("cre_date") &&
-        dfSearches.col("Origin") === dfBookings.col("dep_port") &&
-        dfSearches.col("Destination") === dfBookings.col("arr_port"), "left")
-  }
+      //Clean column names
+      val dfSearchesColumn = exerciseTwo.cleanColumnNames(dfSearches)
 
+      //Selecting only the necessary columns
+      val dfSearchesColumnSel = dfSearchesColumn.select("Origin","Destination", "Date", "index")
 
+      //Removing null values
+      val dfSearchesSelClean = exerciseTwo.cleanNulls(dfSearchesColumnSel)
 
-  /*
-  * Process bookings : Selects relevant columns, and cleans the column names and row values (nulls, trim).
-  */
-  def processBookings(dfBookingsTemp: DataFrame): DataFrame = {
+      // Clean columns Origin & Destination in Searches
+      val dfSearchReady = dfSearchesSelClean.withColumn("Origin", trim(col("Origin")))
+        .withColumn("Destination", trim(col("Destination")))
 
-    //Adding bookings column with "ones" to Bookings
-    val dfBookings = dfBookingsTemp.withColumn("booking", lit(1))
+      //Return searches ready to be merged
+      dfSearchReady
+    }
 
-    //Clean column names
-    val dfBookingsColumn = exerciseTwo.cleanColumnNames(dfBookings)
-
-    //Select columns to be merged
-    val dfBookingsColumnSel = dfBookingsColumn.select("arr_port","dep_port", "cre_date", "booking")
-
-    //Clean nulls
-    val dfBookingsClean = exerciseTwo.cleanNulls(dfBookingsColumnSel)
-
-    // Clean date on Bookings & stripping airport columns & remove duplicates
-    val dfBookingsReady = dfBookingsClean
-      .withColumn("cre_date", substring(col("cre_date"),1,10) )
-      .withColumn("dep_port", trim(col("dep_port")))
-      .withColumn("arr_port", trim(col("arr_port")))
-      .distinct()
-
-    //Return dfBookings ready to me merged
-    dfBookingsReady
-  }
-
-  /*
-* Process searches: Selects relevant columns, and cleans the column names and row values (nulls, trim).
-*/
-  def processSearches(dfSearches: DataFrame): DataFrame = {
-
-    //Clean column names
-    val dfSearchesColumn = exerciseTwo.cleanColumnNames(dfSearches)
-
-    //Selecting only the necessary columns
-    val dfSearchesColumnSel = dfSearchesColumn.select("Origin","Destination", "Date", "index")
-
-    //Removing null values
-    val dfSearchesSelClean = exerciseTwo.cleanNulls(dfSearchesColumnSel)
-
-    // Clean columns Origin & Destination in Searches
-    val dfSearchReady = dfSearchesSelClean.withColumn("Origin", trim(col("Origin")))
-      .withColumn("Destination", trim(col("Destination")))
-
-    //Return searches ready to be merged
-    dfSearchReady
-  }
 
 
 }

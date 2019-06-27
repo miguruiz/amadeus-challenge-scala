@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8cab624e-fb6f-43e3-8c5b-321a094f6eb0" name="Default Changelist" comment="" />
+    <list default="true" id="8cab624e-fb6f-43e3-8c5b-321a094f6eb0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid16273.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid3073.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$765650d46fdac57b4af9$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$765650d46fdac57b4af9.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$765650d46fdac57b4af9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/amadeus-challenge-scala-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/amadeus-challenge-scala-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/amadeus-challenge-scala-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/amadeus-challenge-scala-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-compile-internal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-compile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-compile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-optional.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-optional.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-provided.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-provided.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-runtime-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-runtime-internal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-runtime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-runtime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-scala-tool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-scala-tool.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-test-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-test-internal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-amadeus-challenge-scala-build-test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseThree.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseThree.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/amadeusChallenge/hs_err_pid15239.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/amadeusChallenge/exerciseThree$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/amadeusChallenge/exerciseThree$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/amadeusChallenge/hs_err_pid15239.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/amadeusChallenge/exerciseOneTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/test-classes/amadeusChallenge/exerciseOneTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compile/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -23,13 +56,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/amadeusChallenge.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseOne.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="97" column="74" lean-forward="true" selection-start-line="95" selection-start-column="3" selection-end-line="97" selection-end-column="74" />
+            <state relative-caret-position="1485">
+              <caret line="100" column="2" selection-start-line="100" selection-start-column="2" selection-end-line="100" selection-end-column="2" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#26#66#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,20 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/amadeusChallengeTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#26#79#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/exerciseTwoTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="26" selection-end-column="21" />
+            <state relative-caret-position="510">
+              <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
               <folding>
                 <element signature="e#26#79#0" expanded="true" />
               </folding>
@@ -62,11 +82,81 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="37" column="3" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
+            <state relative-caret-position="555">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding>
                 <element signature="e#26#79#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseTwo.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="68" column="15" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="15" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#113#149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseThree.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/exerciseFourWebService.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/exerciseFourWebServiceBuilder.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/Main.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.sbt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -78,6 +168,7 @@
       <list>
         <option value="Scala Worksheet" />
         <option value="Package Object" />
+        <option value="Scala Object" />
       </list>
     </option>
   </component>
@@ -106,19 +197,25 @@
         <option value="$PROJECT_DIR$/src/main/scala/tests.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/removeDuplicates.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseOne.sc" />
-        <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseTwo_2.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseTwo.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseThree.sc" />
-        <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/tests_2.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseTwo.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseThree.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseOne.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/amadeusChallenge.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/exerciseTwoTest.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/amadeusChallengeTest.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseThree.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseFour.scala" />
+        <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/WebServiceBuilder.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseFourWebServiceBuilder.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseFourWebService.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/exerciseFourWebServiceBuilder.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/Main.scala" />
       </list>
     </option>
   </component>
@@ -136,6 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -174,6 +272,14 @@
               <item name="amadeus-challenge-scala" type="b2602c69:ProjectViewProjectNode" />
               <item name="amadeus-challenge-scala" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="amadeusChallengeWebService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="amadeus-challenge-scala" type="b2602c69:ProjectViewProjectNode" />
+              <item name="amadeus-challenge-scala" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -187,7 +293,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,19 +320,6 @@
     </option>
   </component>
   <component name="RunManager" selected="ScalaTest.amadeusChallengeTest">
-    <configuration name="amadeusChallenge" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="amadeusChallenge.amadeusChallenge" />
-      <module name="amadeus-challenge-scala" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="amadeusChallenge.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="amadeusChallengeTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <module name="amadeus-challenge-scala" />
       <setting name="path" value="amadeusChallenge.amadeusChallengeTest" />
@@ -284,7 +376,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="exerciseOneTest.Testing function readFile" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+    <configuration name="exerciseOneTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <module name="amadeus-challenge-scala" />
+      <setting name="path" value="amadeusChallenge.exerciseOneTest" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <setting name="jrePath" value="" />
+      <envs />
+      <setting name="testKind" value="Class" />
+      <setting name="path" value="amadeusChallenge.exerciseOneTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="exerciseOneTest.Testing countLines" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <module name="amadeus-challenge-scala" />
       <setting name="path" value="amadeusChallenge.exerciseOneTest" />
       <setting name="vmparams" value="" />
@@ -298,7 +408,7 @@
       <envs />
       <setting name="testKind" value="Test name" />
       <setting name="path" value="amadeusChallenge.exerciseOneTest" />
-      <setting name="testName" value="Testing function readFile" />
+      <setting name="testName" value="Testing countLines" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -306,10 +416,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="ScalaTest.amadeusChallengeTest" />
+        <item itemvalue="ScalaTest.exerciseOneTest" />
+        <item itemvalue="ScalaTest.exerciseOneTest.Testing countLines" />
+        <item itemvalue="ScalaTest.amadeusChallengeTest" />
         <item itemvalue="ScalaTest.amadeusChallengeTest.Testing validateColumns" />
-        <item itemvalue="ScalaTest.amadeusChallengeTest.Testing obtainPath" />
-        <item itemvalue="Application.amadeusChallenge" />
-        <item itemvalue="ScalaTest.exerciseOneTest.Testing function readFile" />
       </list>
     </recent_temporary>
   </component>
@@ -340,8 +450,14 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/build.sbt" value="3554228288" />
+        <entry key="$PROJECT_DIR$" value="3122608961000" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="1468980058" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
       </map>
     </option>
   </component>
@@ -368,17 +484,13 @@
       <workItem from="1561456067738" duration="11397000" />
       <workItem from="1561469888992" duration="29801000" />
       <workItem from="1561560995929" duration="973000" />
-      <workItem from="1561562263631" duration="4246000" />
+      <workItem from="1561562263631" duration="5791000" />
+      <workItem from="1561622540123" duration="2618000" />
+      <workItem from="1561627659143" duration="467000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="exerciseTwoTest - 2019.06.26 at 13h 38m 56s.xml">
-      <configuration name="exerciseTwoTest" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="exerciseTwoTest - 2019.06.26 at 13h 38m 57s.xml">
-      <configuration name="exerciseTwoTest" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
     <history-entry file="exerciseOneTest - 2019.06.26 at 14h 13m 22s.xml">
       <configuration name="exerciseOneTest" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
@@ -403,15 +515,20 @@
     <history-entry file="amadeusChallengeTest - 2019.06.26 at 20h 07m 39s.xml">
       <configuration name="amadeusChallengeTest" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
+    <history-entry file="exerciseOneTest - 2019.06.27 at 10h 33m 25s.xml">
+      <configuration name="exerciseOneTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="amadeusChallengeTest - 2019.06.27 at 10h 37m 05s.xml">
+      <configuration name="amadeusChallengeTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112591000" />
+    <option name="totallyTimeSpent" value="117221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1442" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27259684" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28120518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -419,14 +536,14 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32980132" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32980132" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32980132" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.19205298" />
-      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="8" weight="0.4450331" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="8" weight="0.44444445" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32980132" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -498,14 +615,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseTwo_2.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/package.scala" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/removeDuplicates.sc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
@@ -541,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/Thread.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -561,10 +663,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/amadeusChallenge.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="97" column="74" selection-start-line="95" selection-start-column="3" selection-end-line="97" selection-end-column="74" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/exerciseTwoTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <element signature="e#26#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/package.scala" />
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseOne.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="100" column="2" selection-start-line="100" selection-start-column="2" selection-end-line="100" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/amadeusChallengeTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+          <folding>
+            <element signature="e#26#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="e#26#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseTwo.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="1020">
+          <caret line="68" column="15" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="15" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#113#149#0" expanded="true" />
@@ -572,65 +725,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseOne.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusExerciseFour.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#124#187#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseFour.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseThree.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        <state relative-caret-position="186">
+          <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/exerciseOneTest.scala">
+    <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="37" column="3" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/WebServiceBuilder.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="29" selection-end-line="23" />
           <folding>
-            <element signature="e#26#79#0" expanded="true" />
+            <element signature="e#25#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/amadeusChallenge.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallenge/exerciseFourWebServiceBuilder.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="97" column="74" lean-forward="true" selection-start-line="95" selection-start-column="3" selection-end-line="97" selection-end-column="74" />
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#26#66#0" expanded="true" />
+            <element signature="e#97#125#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/amadeusChallengeTest.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/exerciseFourWebService.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#26#79#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/exerciseTwoTest.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/exerciseFourWebServiceBuilder.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="26" selection-end-column="21" />
-          <folding>
-            <element signature="e#26#79#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/amadeusChallengeWebService/Main.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>

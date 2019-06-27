@@ -12,5 +12,8 @@ libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.2"
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.8"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 
-
-libraryDependencies +="com.holdenkarau" %% "spark-testing-base" % "2.4.2_0.12.0" % "test"
+//Scalatra
+libraryDependencies ++= Seq(
+  "org.scalatra" %% "scalatra" % "2.5.4",
+  "org.eclipse.jetty" % "jetty-webapp" % "9.4.12.v20180830"
+)

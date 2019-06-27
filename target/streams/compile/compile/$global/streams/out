@@ -1,2 +1,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mAcquiring lock on file /home/dsc/challenge_scala/amadeus-challenge-scala/project/target/.sbt-compilation-infos/amadeus-challenge-scala-compile/.sbt-idea-lock ...[0m
+[0m[[0m[31merror[0m] [0m[0m/home/dsc/challenge_scala/amadeus-challenge-scala/src/main/scala/amadeusChallenge/exerciseThree.scala:28:27: forward reference extends over definition of value dfBookingsReady[0m
+[0m[[0m[31merror[0m] [0m[0m    val dfBookingsReady = processBookings(dfBookingsTemp)[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/dsc/challenge_scala/amadeus-challenge-scala/src/main/scala/amadeusChallenge/exerciseThree.scala:29:27: forward reference extends over definition of value dfSearchesReady[0m
+[0m[[0m[31merror[0m] [0m[0m    val dfSearchesReady = processSearches(dfSearchesOriginal)[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
 [0m[[0m[0mdebug[0m] [0m[0mReleasing lock on file /home/dsc/challenge_scala/amadeus-challenge-scala/project/target/.sbt-compilation-infos/amadeus-challenge-scala-compile/.sbt-idea-lock.[0m
