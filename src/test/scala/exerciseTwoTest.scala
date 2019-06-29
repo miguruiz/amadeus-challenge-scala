@@ -41,7 +41,7 @@ class exerciseTwoTest extends FunSuite with BeforeAndAfter {
     * Unit tests for amadeusChallenge - exerciseTwo - cleanColumnNames function
     */
   test("Testing function cleanColumnNames" ) {
-    val actual = exerciseTwo.cleanColumnNames(df).columns
+    val actual = myFunctions.cleanColumnNames(df).columns
     val expected = columns
 
     assert(actual === expected)

@@ -21,8 +21,8 @@ object exerciseThree {
   def execute(filePath_Bookings: String, filePath_Searches:String, spark: SparkSession): Unit = {
 
     //Read files into datagrames
-    val dfBookingsTemp = exerciseOne.readFile(filePath_Bookings, spark)
-    val dfSearchesTemp = exerciseOne.readFile(filePath_Searches, spark)
+    val dfBookingsTemp = myFunctions.readFile(filePath_Bookings, spark)
+    val dfSearchesTemp = myFunctions.readFile(filePath_Searches, spark)
 
     //Adding index column to searches
     val dfSearchesOriginal = dfSearchesTemp.withColumn("index", monotonically_increasing_id())
@@ -88,13 +88,13 @@ object exerciseThree {
       val dfBookings = dfBookingsTemp.withColumn("booking", lit(1))
 
       //Clean column names
-      val dfBookingsColumn = exerciseTwo.cleanColumnNames(dfBookings)
+      val dfBookingsColumn = myFunctions.cleanColumnNames(dfBookings)
 
       //Select columns to be merged
       val dfBookingsColumnSel = dfBookingsColumn.select("arr_port","dep_port", "cre_date", "booking")
 
       //Clean nulls
-      val dfBookingsClean = exerciseTwo.cleanNulls(dfBookingsColumnSel)
+      val dfBookingsClean = myFunctions.cleanNulls(dfBookingsColumnSel)
 
       // Clean date on Bookings & stripping airport columns & remove duplicates
       val dfBookingsReady = dfBookingsClean
@@ -113,13 +113,13 @@ object exerciseThree {
     def processSearches(dfSearches: DataFrame): DataFrame = {
 
       //Clean column names
-      val dfSearchesColumn = exerciseTwo.cleanColumnNames(dfSearches)
+      val dfSearchesColumn = myFunctions.cleanColumnNames(dfSearches)
 
       //Selecting only the necessary columns
       val dfSearchesColumnSel = dfSearchesColumn.select("Origin","Destination", "Date", "index")
 
       //Removing null values
-      val dfSearchesSelClean = exerciseTwo.cleanNulls(dfSearchesColumnSel)
+      val dfSearchesSelClean = myFunctions.cleanNulls(dfSearchesColumnSel)
 
       // Clean columns Origin & Destination in Searches
       val dfSearchReady = dfSearchesSelClean.withColumn("Origin", trim(col("Origin")))

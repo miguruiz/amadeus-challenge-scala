@@ -41,7 +41,7 @@ class exerciseOneTest extends FunSuite with BeforeAndAfter {
     */
 
   test("Testing countLines" ) {
-    val actual = exerciseOne.countLines(df)
+    val actual = myFunctions.countLines(df)
     val expected = (100004, 99999)
 
     assert(actual === expected)
@@ -52,7 +52,7 @@ class exerciseOneTest extends FunSuite with BeforeAndAfter {
     */
 
   test("Testing removeDuplicates" ) {
-    val actual = exerciseOne.removeDuplicates(df).count()
+    val actual = myFunctions.removeDuplicates(df).count()
     val expected = df2.count()
 
     assert(actual === expected)

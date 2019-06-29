@@ -29,8 +29,11 @@ object amadeusChallenge {
         println("Error, at least one of the files does not exist.")
       }else {
         // Initialize SparkContet & Spark Session
-        val sc = new SparkContext("local", "amadeus")
-        val spark = SparkSession.builder.appName("Amadeus").getOrCreate()
+        val spark = SparkSession
+          .builder
+          .appName("Amadeus")
+          .config("spark.master", "local")
+          .getOrCreate()
 
 
         //Validate if column exist
@@ -54,7 +57,7 @@ object amadeusChallenge {
             println("Execution of exercise TWO starts ")
             println ("")
            //Exercise Two - top 10 airports
-           exerciseTwo.execute(bookingsUniquePath, spark, sc)
+           exerciseTwo.execute(bookingsUniquePath, spark)
 
             println ("")
             println("Execution of exercise THREE starts ")
@@ -64,7 +67,6 @@ object amadeusChallenge {
 
         }
 
-        sc.stop()
         spark.stop()
       }
     }
@@ -91,8 +93,8 @@ object amadeusChallenge {
     */
   def validateColumns(filePath: String, columns: List[String], spark: SparkSession): Boolean = {
 
-    val df = exerciseOne.readFile(filePath,spark)
-    val dfClean = exerciseTwo.cleanColumnNames(df)
+    val df = myFunctions.readFile(filePath,spark)
+    val dfClean = myFunctions.cleanColumnNames(df)
     val validation = columns.flatMap(c => Try(dfClean(c)).toOption).length
 
     columns.length == validation

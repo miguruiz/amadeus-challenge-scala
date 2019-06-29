@@ -26,7 +26,7 @@ class exerciseFourWebService extends ScalatraServlet with JacksonJsonSupport{
   val bookingsPath: String = "../../Data/challenge_scala/bookings_testing.csv"
 
   //Execute exercise two and return the dataframe (without validations)
-  val df = exerciseTwo.execute(bookingsPath, spark, sc)
+  val df = exerciseTwo.execute(bookingsPath, spark)
 
   protected implicit lazy val jsonFormats: Formats = DefaultFormats
 
