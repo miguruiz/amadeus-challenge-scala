@@ -28,22 +28,3 @@ Wrap the output of the second exercise in a web service that returns the data in
 
 ## Solution
 To conduct the challenge I used *Spark* for processing the data, *Scalatest* to create tests and *Scalatra* for the web service
-
-# Project Structure
-
---**src** <br/>
----- **main** <br/>
------- **amadeusChallenge::** *package containin exercise one to three.* <br/>
--------- **amadeusChallenge.scala::** *main. given bookings.csv and searches.csv filepaths, executes exercise 1 to 3* <br/>
--------- **exerciseOne.scala** <br/>
--------- **exerciseThree.scala** <br/>
--------- **exerciseTwo.scala** <br/>
------- **amadeusChallengeWebService** <br/>
--------- **Main.scala** <br/>
--------- **exerciseFourWebService.scala** <br/>
--------- **exerciseFourWebServiceBuilder.scala** <br/>
-
----- **test** <br/>
------ **amadeusChallengeTest.scala** <br/>
------ **exerciseOneTest.scala** <br/>
------ **exerciseTwoTest.scala** <br/>
