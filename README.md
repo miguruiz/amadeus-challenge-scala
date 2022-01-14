@@ -1,7 +1,7 @@
 # amadeus-challenge-scala
 
 ## Introduction
-This repository was created as part of the Scala challenge provided by Amadeus. It consist in four exercise described below:
+This repository was created as part of the Scala challenge provided by Amadeus. It consist in four exercise described below, and was my first contact with scala.
 
 ## 
 **Question 1: reading files**
